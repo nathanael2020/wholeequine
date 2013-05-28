@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509215343) do
+ActiveRecord::Schema.define(:version => 20130528191540) do
+
+  create_table "cats", :force => true do |t|
+    t.string   "name"
+    t.float    "weight"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -42,8 +50,11 @@ ActiveRecord::Schema.define(:version => 20130509215343) do
     t.string   "company"
     t.integer  "state_id"
     t.integer  "country_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.integer  "user_id"
+    t.datetime "deleted_at"
+    t.integer  "position",          :default => 0
   end
 
   add_index "spree_addresses", ["firstname"], :name => "index_addresses_on_firstname"
@@ -638,8 +649,8 @@ ActiveRecord::Schema.define(:version => 20130509215343) do
     t.string   "persistence_token"
     t.string   "reset_password_token"
     t.string   "perishable_token"
-    t.integer  "sign_in_count",                         :default => 0, :null => false
-    t.integer  "failed_attempts",                       :default => 0, :null => false
+    t.integer  "sign_in_count",                         :default => 0,     :null => false
+    t.integer  "failed_attempts",                       :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -652,10 +663,17 @@ ActiveRecord::Schema.define(:version => 20130509215343) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "reset_password_sent_at"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.string   "spree_api_key",          :limit => 48
     t.datetime "remember_created_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "health_issues"
+    t.string   "fitness_goals"
+    t.string   "fitness_routines"
+    t.boolean  "newsletter",                            :default => false
   end
 
   add_index "spree_users", ["email"], :name => "email_idx_unique", :unique => true
@@ -694,6 +712,11 @@ ActiveRecord::Schema.define(:version => 20130509215343) do
     t.integer  "zone_members_count", :default => 0
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+  end
+
+  create_table "users_cats", :force => true do |t|
+    t.integer "user_id"
+    t.integer "cat_id"
   end
 
 end

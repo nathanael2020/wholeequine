@@ -48,3 +48,9 @@ gem 'spree_related_products', :git => 'git://github.com/spree/spree_related_prod
 gem 'spree_static_content', :github => 'spree/spree_static_content', :branch => '1-3-stable'
 
 gem 'spree_product_ingredients', :path => './spree_product_ingredients'
+gem 'spree_address_book', :github => 'romul/spree_address_book', :branch => 'master'
+
+group :development do
+  gem "quiet_assets", "~> 1.0.1"
+end
+

@@ -1,0 +1,12 @@
+<% if @user.errors.present? %>
+   <% if params.has_key? :popup_info %>
+   $("#user-info-popup").html("<%= j render :template => "spree/users/info" %>");
+   <% else %>
+   $("#user-info-popup").html("<%= j render :template => "spree/users/edit" %>");
+   <% end %>
+<% else %>
+$("#user-info-popup").html("<%= flash.notice %>");
+window.setTimeout(function() {
+  $("#user-info-popup").dialog('close');  
+},3000);
+<% end %>

@@ -1,0 +1,100 @@
+<h3>About me</h3>
+<div class="">
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
+  <%= form_for @user, :url => spree.user_path(@user), :method => :put, :remote => true do |f| %>
+  <%= hidden_field_tag :popup_info, true %>
+  <p>
+    <%= f.label :health_issues, t(:health_issues) %><br />
+    <%= f.text_field :health_issues, :class => 'title' %>
+  </p>
+
+  <p>
+    <h3>Fitness goals</h3> <br />
+    <% Spree::User::FITNESS_GOALS.each do |t| %>
+    <label>
+      <%= check_box_tag "user[fitness_goals][]", t, @user.fitness_goals.include?(t) %>
+      <%= t %>
+      </label>
+    <br />
+    <% end %>
+</p>
+
+  <p>
+    <%= f.label :fitness_routines, t(:fitness_routines) %><br />
+    <%= f.text_field :fitness_routines, :class => 'title' %>
+  </p>
+
+  <p>
+    <%= link_to "Add a cat", "#", :id => "add-cat-info-popup", :class => 'button ', :style => "background: white;color: gray;border: 1px gray solid;" %>
+    <div id="cats-inputs">
+
+    </div>
+  </p>
+
+  <p>
+
+    <%= f.submit t(:update), :class => 'button primary' %>
+    <%= link_to "Skip", "#", :id => "close-user-info-popup", :class => 'button ', :style => "float:right;margin-right: 40px;background: white;color: gray;border: 1px gray solid;" %>
+  </p>
+  <% end %>
+
+</div>
+<script>
+  $("#cats-inputs").on("click", ".remove-cat-item", function(){
+    $(this).parents(".cats-item:first").remove();
+  if ($('.cats-item', "#cats-inputs").size() < 4 ){
+    $("#add-cat-info-popup").show()
+  }
+  $.each($('.cats-item', "#cats-inputs"), function(i, item){
+                                               var n = i;
+                                               $.each($("input", item), function(_i, _item){
+                                                 $(_item).attr("name", $(_item).attr("name").replace(/\d/, n))
+                                               })
+                                               console.log(item)
+                                               })
+  })
+
+  $("#add-cat-info-popup").on("click", function(){
+  var n = $('.cats-item', "#cats-inputs").size();
+  var html = ["<div class='cats-item'>"]
+  html.push("<label>Name</label>")
+  html.push("<input name='user[cats_attributes]["+n+"][name]' size='30' type='text'>")
+  html.push("<label>Weight</label>")
+  html.push("<input name='user[cats_attributes]["+n+"][weight]' size='30' type='text'>")
+  html.push("<span><a href='#' class='button remove-cat-item' style='background: white;color: gray;border:none;' >Remove</a></span>")
+  html.push("</div>")
+  $("#cats-inputs").append(html.join(''))
+  if (n == 3){
+  $("#add-cat-info-popup").hide()
+  }
+  return false;
+  })
+function split( val ) {
+        return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+        return split( term ).pop();
+    }
+    var fitnessRoutines =[ 'Running', 'Bicycling', 'Swimming', 'Weight Lifting', 'Yoga', 'Pilates', 'Rowing', 'Martial Arts' ]
+
+$("#user_fitness_routines")
+        .autocomplete({
+            minLength: 0,
+            source: function( request, response ) {
+                response( $.ui.autocomplete.filter(
+                    fitnessRoutines, extractLast( request.term ) ) );
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+                var terms = split( this.value );
+                terms.pop();
+                terms.push( ui.item.value );
+                terms.push( "" );
+                this.value = terms.join( ", " );
+                return false;
+            }
+        });
+</script>

@@ -51,5 +51,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
     <%= render :partial => 'spree/shared/google_analytics' %>
 
+    <script> window.show_popup_user_info = <%= !!session[:show_popup_user_info] %> </script>
+    <% session.delete(:show_popup_user_info) %>
+
   </body>
 </html>

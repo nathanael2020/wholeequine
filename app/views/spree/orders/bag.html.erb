@@ -10,6 +10,9 @@
         <li class="prods txt" >
           <%= link_to item.variant.product.name,  product_path(item.variant.product) %>
         </li>
+        <li class="qty">
+          <%= item.quantity %>
+        </li>
 
       </ul>
       <% end %>
@@ -17,6 +20,13 @@
     <ul class="crtbtns">
       <li>
         <a href="/cart" class="continue button gray"><i class="icon-right"></i><%= t('view_cart')%></a>
+        
+                <%= form_for current_order, :url => update_cart_path, :html => {:id => nil, :style=>"display:inline;"} do |order_form| %>
+        <%= button_tag :class => 'button checkout primary', :id => nil, :name => 'checkout' do %>
+        <%= t(:checkout) %>
+        <% end %>
+        <% end %>
+
       </li>
     </ul>
   </div>

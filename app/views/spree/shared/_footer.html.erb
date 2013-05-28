@@ -12,6 +12,17 @@
           	© 2013 Whole Equine, LLC
           	</span>
 	          </div>
+
+	          <div style="display:inline; float:right; margin-top: 15px">
+	          
+	          <%= form_for :newsletter, :url => subscribe_path, :method => :post do |f| %>
+      <div class="newsletter">
+        Newsletter:  <input type='email' name='email' >
+        <button>send</button>
+      </div>
+      <% end %>
+
+	          </div>
 	          
 	          <div style="display:inline; float:right; margin-top: 15px">
           	

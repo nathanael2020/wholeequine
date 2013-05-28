@@ -3,5 +3,5 @@
 
 en:
   hello: "Hello world"
-
+  newsletter_message: "Sign up and save 10% off your first order"
   shop_by_taxonomy: "%{taxonomy}"

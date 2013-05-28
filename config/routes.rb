@@ -10,6 +10,8 @@ WholeEquine::Application.routes.draw do
   Spree::Core::Engine.routes.prepend do
     match "/orders/bag" => "orders#bag", :as => "bag"
     match "/charts" => "charts#index", :as => "charts"
+    match "/account/info" => "users#info", :as => "user_info"
+    match "/subscribe" => "newsletter#subscribe", :as => "subscribe", :via => :post
   end
 
           # The priority is based upon order of creation:
