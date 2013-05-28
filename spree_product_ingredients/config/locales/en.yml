@@ -1,0 +1,12 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  search_results_ingredients: 'Supplement Chars: %{keywords}'
+  show_analysis_in_window: Show in separate window
+  cart_ingredients: Analize Ingredients
+  ingredient_products: Ingredients
+  ingredient:
+    new_ingredient: New ingredient
+    ingredients: Ingredients
+    editing_ingredient: Editing ingredient

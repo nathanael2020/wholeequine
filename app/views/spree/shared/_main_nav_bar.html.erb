@@ -1,0 +1,38 @@
+<nav class="columns sixteen">
+  <ul id="main-nav-bar" class="inline" data-hook>
+<!--    <li id="home-link" data-hook><%= link_to t(:home), root_path %></li>-->
+
+  <% get_taxonomies.each do |taxonomy| %>
+
+<% if taxonomy.name != 'Tags' %>
+
+<li class="nested-menu">
+
+          <%= link_to(taxonomy.name, spree.nested_taxons_path(taxonomy.root.permalink)) %>
+
+<% if !taxonomy.root.children.empty? %>
+
+<ul class="dropdown">
+
+<% taxonomy.root.children.map do |taxon| %>
+
+<li><%= link_to(taxon.name, spree.nested_taxons_path(taxon.permalink)) %>
+</li>
+
+<% end %>
+
+</ul>
+
+<% end %>
+
+</li>
+
+<% end %>
+
+<% end %>
+
+    <li id="link-to-cart" data-hook><%= link_to_cart %></li>
+    <li data-hook style="float: right; margin-right: 5px"><%= link_to t(:contact), contact_path %></li>
+    
+  </ul>
+</nav>

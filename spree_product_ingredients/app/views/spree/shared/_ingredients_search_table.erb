@@ -1,0 +1,10 @@
+<h6 class="search-results-title"><%= t(:search_ingredients_results, :keywords => h(params[:keywords])) %></h6>
+<ul class='search_ingredients_list'>
+<% @ingredients.each do |ingredient| %>
+<li style="border-bottom: 1px solid gray;">
+   <%= ingredient.name %>
+   <br />
+   <%= truncate(ingredient.description, :ommision => "...", :length => 255) %>
+</li>
+<% end %>
+</ul>

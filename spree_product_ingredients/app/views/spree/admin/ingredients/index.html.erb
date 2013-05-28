@@ -1,0 +1,45 @@
+<% content_for :page_actions do %>
+  <li><%= button_link_to t("ingredient.new_ingredient"), new_object_url, :icon => 'icon-plus' %></li>
+<% end %>
+
+<% content_for :page_title do %>
+   <%= t("ingredient.ingredients") %>
+<% end %>
+
+<table class="index">
+  <colgroup>
+    <col style="width: 40%" />
+    <col style="width: 40%" />
+    <col style="width: 10%" />
+    <col style="width: 10%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th><%= Spree::Ingredient.human_attribute_name(:name) %></th>
+      <th><%= Spree::Ingredient.human_attribute_name(:taxons) %></th>
+      <th><%= Spree::Ingredient.human_attribute_name(:unit) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingredients.each do |ingredient| %>
+      <tr class="<%= cycle('odd', 'even') %>" id="<%= dom_id ingredient %>">
+        <td>
+          <%= ingredient.name %>
+        </td>
+        <td>
+          <%= ingredient.taxons.map{|j| j.pretty_name }.join(', ') %>
+        </td>
+
+        <td>
+          <%= ingredient.unit %>
+        </td>
+        <td  class="actions">
+          <%= link_to_edit ingredient, :no_text => true %>
+          <%= link_to_delete ingredient, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

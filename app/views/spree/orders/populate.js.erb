@@ -1,0 +1,12 @@
+$("#preview-population").html("<%= j render "preview_populator" %>")
+$("#preview-population").dialog({
+                                  dialogClass: "previewPopulator",
+                                  width: '60%',
+                                  height: '400',
+                                  title: "1 ITEM ADDED TO YOUR BAG",
+                                   modal: true})
+
+$("a.close, a#preview_population_continue_shoppin", "#preview-population" ).on("click", function(e) {
+    e.preventDefault();
+    $("#preview-population").dialog("close");
+} );

@@ -1,0 +1,294 @@
+
+<%# if current_page?(root_path) %>
+
+<%# content_for :subheader do %>
+
+  <%#= render 'slider' %>
+
+<%# end %>
+
+<%# end %>
+
+  
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+
+<script type="text/javascript">
+
+  jQuery.noConflict();
+  
+  jQuery(document).ready(function() {
+    jQuery("#tabs").tabs();
+  });
+
+
+jQuery('document').ready(function() {
+	// go up
+	jQuery('.four-boxes ul li').mouseenter(function(e) {
+		var parent = jQuery(e.target).parent('span');
+		// animate CSS
+		parent.find('img').stop().animate({
+/*		    top: '-340px',*/
+			opacity: '0.1',
+		  }, 400);
+		parent.find('h3').stop().animate({
+		    top: '0px',
+		    		    backgroundColor: 'transparent',
+		    color: '#000',
+/*		    right: '67px'*/
+		  }, 400);
+		parent.find('p').stop().animate({
+		    top: '35px',
+		  }, 400);
+	});
+
+	// back down
+	jQuery('.four-boxes ul li').mouseleave(function(e) {
+		var parent = jQuery(e.target).parent('span');
+		// animate CSS
+		parent.find('img').stop().animate({
+/*		    top: '0px',*/
+		    			opacity: '1',
+
+		  }, 400);
+		parent.find('h3').stop().animate({
+		    top: '255px',
+		    backgroundColor: 'rgba(0,0,0,1)',
+		    color: '#fff',
+
+/*		    right: '5px'*/
+		  }, 400);
+		parent.find('p').stop().animate({
+		    top: '305px',
+		  }, 400);
+
+	});
+});
+
+</script>
+
+
+<style>
+
+
+
+.body-container {
+	
+	display: inline-block;
+	margin-bottom: 5px;
+/*	margin-left: -10px;*/
+}
+
+
+.body-container div.four-boxes {
+/*    float: left;*/
+    width: 980px;
+    padding-left: 0px;
+    
+     }
+    
+
+    ul.cf {
+	    
+	    margin: 0px;
+	    white-space: nowrap;
+	    display: inline-block;
+	    vertical-align: top;
+    }
+
+
+    
+    .body-container div.four-boxes span {
+
+	border-radius: 10px;
+      overflow: hidden;
+
+}
+    
+    .body-container div.four-boxes ul li {
+
+    
+    	    vertical-align: top;
+
+        background-color: rgba(255,255,255,0.9);
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px solid black;
+	    white-space: nowrap;
+
+      display: inline-block;
+      list-style: none;
+      padding: 0;
+      margin: 0 20px 15px 0;
+      position: relative;
+      overflow: hidden;
+      background-color: rgba(255,255,255,0.9);
+      width: 307px;
+      height: 305px; }
+      .body-container div.four-boxes ul li img {
+        width: 307px;
+        border-radius: 10px;
+        border: none !important;
+        position: relative; }
+        
+        #four-boxes h3 {
+	        
+	                color: #fff;
+
+        }
+        
+      .body-container div.four-boxes ul li h3 {
+        position: absolute;
+        top: 255px;
+        left: -35px;
+
+        color: #fff;
+        background-color: rgba(0,0,0,1);
+
+/*        color: #000 !important;
+        background-color: rgba(255,255,255,0.8);*/
+        	padding: 10px 400px 400px 50px;
+
+        font-size: 22px;
+        font-weight: normal;
+/*        text-shadow: white 0.1em 0.1em 0.3em;*/
+        text-transform: uppercase;
+        font-family: 'Gill Sans';}
+      .body-container div.four-boxes ul li p {
+        position: absolute;
+        top: 305px;
+        margin-top: 15px;
+        padding: 0px 10px 10px 15px;
+        font-size: 11pt;
+        line-height: 16pt;
+        text-align: left;
+        height: 220px;
+        width: 270px;
+        color: #444;
+        font-family: 'Gill Sans';
+        white-space: normal;
+        overflow-y: scroll;
+        }
+        
+        a:hover.find-us-on-facebook {
+	        
+	        text-decoration: none;
+	        
+        }
+        
+        </style>
+
+<!--           <div class="row">
+            <div class="span12">
+    -->          
+
+<div class="body-container" style="margin-bottom: 0px">
+
+<div class="four-boxes" id="four-boxes">
+			<ul class="cf">
+				<li>
+				<span>
+				<%= image_tag('natural_horses.jpg', :margin => '0px') %>
+<!--					<img src="/assets/we-source-eccb9a652806c56e26387f0903dc63a1.jpg" />-->
+					<h3>What is Whole Equine?</h3>
+					<p>Whole Equine is your online resource for natural horse care products and equipment. We carefully select our products based on our confidence in the manufacturer, proven effectiveness, processing techniques and ingredients.<br><br>We are a small, woman-owned business based in Northern California with a passion for preventative care and helping horses live a more comfortable life in order to enhance our horses’ performance, longevity, and our experiences with them.<br><br>
+						<strong>Our Mission</strong><br><br>We strive to be the premier provider of a spectrum of carefully selected, quality natural equine products, in a user-friendly format that allows horsemen and women
+to make educated decisions on which products are the best fit for their horse.
+<br><br>
+We seek to constantly scan the marketplace for effective and innovative products
+that will assist your horse be in full health. We also want to provide you with the
+tools to make an educated decision- including information on product ingredients,
+links to related articles, and premier customer service to ensure that you get what
+you’re looking for.
+<br><br>
+We know there are lots of choices- almost too many choices- when it comes to
+purchasing products for your horse. Let us do the work, so you can enjoy your
+horse at his full potential, naturally.
+					</p>
+					
+				</span>
+				</li>
+				<li>
+								<span>
+
+				<%= image_tag('herb_bags.jpg', :width => 305, :margin => '0px') %>
+					<h3>Why Natural?</h3>
+					<p>Simply put, we think natural is what works in the long run. We believe horses are much better served by products that can enhance and aid their bodies’ innate ability to heal and grow.
+					<br><br>
+					Chemically processed additives have not been studied to a great enough extent to understand their long-term effects on our horses. Additionally, we believe that horses whose lifestyles mirror more closely that of their wild counterparts have healthier functioning bodily systems.<br><br>
+					Lastly, we also believe that our relationship with our horses- whether it be focused on competition, pleasure riding, companionship, or ranch work- is more effectively served through clear communication and positive reinforcements than painful implementation.
+					<br><br>
+					<strong>What do we mean by natural?</strong><br><br>
+We understand that in the market today there are many products labeled “natural,” hence diminishing the value and meaning of the word.  We strive to put meaning back into the word “natural”- below is our definition:<br><br>
+Natural supplements, topical cleansers, and first aid products refer to those products that do not contain any chemical fillers, additives, flavorings, and/or inactive ingredients.  We strive to provide our customers with an array of products across the spectrum of what is considered natural so that each horse owner can decide what is best for his or her horse.<br><br>
+It also includes lifestyle products that help a horse’s body function at its healthiest possible state in a domestic environment.  These products aim to mirror nature’s elements as if a horse was in the wild, so as to support his bodily functions and immune system to the maximum extent possible and prevent any future harm.<br><br>
+Lastly, it includes training, tack, and other equipment that aid in enhancing the horse/human relationship through building trust and positive reinforcement.</p>
+				</span>
+				</li>
+				<li>
+								<span>
+
+				<%= image_tag('d_and_mel.jpg', :width => 305, :margin => '0px') %>
+					<h3>Our Story</h3>
+					<p>Whole Equine was founded by Melanie Falls, an entrepreneurial businesswoman looking to match up her personal beliefs with her business acumen. Melanie came to believe in the effectiveness of natural healing through her experience with her gelding, Desario.<br><br>Desario fractured his coffin bone, resulting in a bone spur that presses against his deep digital flexor tendon in his front right hoof.  Several veterinarians and other equine health professionals doubted whether he could be ridden again, for fear that the bone spur would shred the tendon and create severe arthritis. However, three years later, after much trial and error, lots of TLC, lifestyle changes, and natural supplementation, Desario has regained his soundness, against all odds.<br><br>It was her experience that led Melanie to believe that natural supplements and awareness of natural horse care could turn a sad early retirement story into many more years of longevity and trail rides.
+					</p>
+								</span>
+				</li>
+
+			</ul>
+			
+		</div>
+		
+</div>
+		
+
+
+<div id="wrapper" class="container" style="margin-bottom:100px; width: 930px;">
+
+<div id="welcome-message">
+  <div class="container2" style="width: 100%">
+
+<center>	<span style="padding-right:10px"><%= link_to (image_tag "f_logo.png", :title => 'Facebook', :width => 27, :class => 'brand'), url_for('http://www.facebook.com/WholeEquine'), :class => 'brand', :margin => 10 %></span>
+<span style="padding-right:35px">
+<a class="find-us-on-facebook" href="http://www.facebook.com/WholeEquine"  style="font-size: 14pt">Find us on Facebook!</a></span>
+
+<span style="padding-right:10px"><%= link_to (image_tag "email.jpg", :title => 'Email Us', :width => 29, :class => 'brand'), url_for('mailto:mail@wholeequine.com'), :class => 'brand', :margin => 10 %></span>
+
+<span><a class="find-us-on-facebook" href="mailto:mail@wholeequine.com" style="font-size: 14pt">Contact us at mail@wholeequine.com</a>
+</span>
+</center>
+  </div>
+</div>
+
+</div>
+
+  
+<div class="container">
+  <% if @featured_products %>
+    <div id="featured-products" class="row">
+      <h3>Featured Products</h3>
+      <hr>
+      <ul class="carousel">
+        <% @featured_products.each do |product| %>
+          <%= render 'product', :product => product %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @latest_products %>
+    <div id="latest-products" class="row">
+      <h3>Latest Products</h3>
+      <hr>
+      <ul class="carousel">
+        <% @latest_products.each do |product| %>
+          <%= render 'product', :product => product %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+</div>

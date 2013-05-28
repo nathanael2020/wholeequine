@@ -1,0 +1,18 @@
+
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  username: nathanael
+  pool: 5
+
+development:
+  <<: *common
+  database: eq_dev
+
+test:
+  <<: *common
+  database: eq_test
+
+production:
+  <<: *common
+  database: eq_prod

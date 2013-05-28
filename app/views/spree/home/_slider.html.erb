@@ -1,0 +1,26 @@
+<% if @slider_products %>
+  <div id="home-slider" style="height:200px">
+    <ul>
+      
+          <li>          
+          <div class="product-image">
+          <%= image_tag('/assets/admin/bg/spree_50.png') %></div>
+          </li>
+<!--
+      <% @slider_products.each do |product| %>
+
+    <li>
+
+          <div class="product-image">
+            <%= link_to product_image(product), product %>
+          </div>
+
+    </li>
+
+<% end %>
+-->
+    
+    
+    </ul>
+  </div>
+<% end %>

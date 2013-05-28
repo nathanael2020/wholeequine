@@ -1,0 +1,6 @@
+<!-- surround_contents '#header' -->
+<div class="header-image">
+<div class="container" style="margin-bottom:0px">
+  <%= render_original %>
+</div>
+</div>

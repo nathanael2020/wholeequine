@@ -1,0 +1,41 @@
+<div class="links columns sixteen alpha omega" >
+  <%= link_to t(:cart_ingredients), "#", :class => 'continue button gray', :id => "cart-toggle-ingredients-table" %>
+</div>
+<div id="cart-ingredients" style='display:none;'>
+<table class='table-cart-ingredients table' >
+  <tr>
+    <th>Ingredient</th>
+    <% @order.ingredient_table_head.each do |h_product| %>
+    <th><%= h_product.name %></th>
+    <% end %>
+    <th>Total</th>
+  </tr>
+
+  <% @order.ingredient_table.each do |ingredient, ing_products| %>
+  <% @total_item = 0 %>
+  <tr class='line_items'>
+    <td>
+      <span class='ingredient_tooltips'  data-powertip_name='<%= ingredient.name %>'  data-powertip_desc= '<%= ingredient.description %>' >
+        <%= ingredient.name %>
+      </span>
+    </td>
+
+    <% @order.ingredient_table_head.each do |h_product| %>
+    <td>
+      <% if current_product = ing_products.detect{|j| h_product.id == j.product_id} %>
+      <%# @current_item = current_product.product.amount_ingredient(ingredient) * current_product.item.quantity; @total_item += @current_item %>
+      <% @current_item = current_product.product.amount_ingredient(ingredient); @total_item += @current_item %>
+      <%= @current_item %>
+      <%= ingredient.unit %>
+      <% end %>
+    </td>
+    <% end %>
+
+    <td><%= @total_item %><%= ingredient.unit %></td>
+  </tr>
+  <% end %>
+</table>
+<div class="links columns sixteen alpha omega" >
+  <%= link_to t(:show_analysis_in_window), ingredients_path, :target => "_blank", :class => 'continue button gray', :id => "cart-toggle-ingredients-table" %>
+</div>
+</div>

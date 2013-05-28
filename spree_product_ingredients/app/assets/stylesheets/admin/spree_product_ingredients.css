@@ -1,0 +1,6 @@
+/*
+ *= require admin/spree_core
+*/
+#ingredient_taxons_field .select2-container {
+  width: 100%;
+}

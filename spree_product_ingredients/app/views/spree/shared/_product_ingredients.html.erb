@@ -1,0 +1,22 @@
+<% if @product.is_a_supplement? %>
+<div id="product-ingredients ">
+<h6 class="product-section-title"><%= t('ingredients')%></h6>
+  <table id="product-properties" class="table-display" data-hook>
+    <tbody>
+      <% @product.product_ingredients.each do |product_ingredient| %>
+        <% css_class = cycle('even', 'odd', :name => "properties") %>
+        <tr class="<%= css_class %>">
+          <td><strong>
+              <span class='ingredient_tooltips'  data-powertip_name='<%= product_ingredient.ingredient_name %>'  data-powertip_desc= '<%= product_ingredient.ingredient_description %>' >
+              <%= product_ingredient.ingredient_name %>
+              </span>
+          </strong></td>
+          <td><%= product_ingredient.pretty_amount %></td>
+        </tr>
+      <% end %>
+      <% reset_cycle('properties') %>
+    </tbody>
+  </table>
+
+</div>
+<% end %>

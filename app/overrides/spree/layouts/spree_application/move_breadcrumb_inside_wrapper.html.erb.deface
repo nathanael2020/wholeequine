@@ -1,0 +1,3 @@
+<!-- insert_top '#wrapper .container' -->
+
+<div class="blah blah"><%= breadcrumbs(@taxon) %></div>

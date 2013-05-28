@@ -1,0 +1,33 @@
+<div class='toolbar'>
+  <ul class='actions header-action-links inline-menu'>
+    <li>
+      <%= button_link_to t("new_ingridient"), new_admin_product_product_ingredient_url(@product), :icon => 'add'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%= t("ingredient.product_ingredients") %>: <%= @product.name %></h1>
+
+<table class="index">
+  <thead>
+    <tr>
+      <th><%= t('name') %></th>
+      <th><%= t('amount_per_serving') %></th>
+      <th><%= t('unit_of_measure') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product_ingredients.each do |relation| %>
+    <tr id="<%#= dom_id relation %>">
+      <td><%= relation.ingredient.name %></td>
+      <td><%= relation.amount_per_serving.to_f != 0 ? relation.amount_per_serving : "-" %></td>
+      <td><%= relation.ingredient.unit %></td>
+      <td width="80px">
+        <%= link_to_delete relation, {:url => admin_product_product_ingredient_url(@product, relation)} %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

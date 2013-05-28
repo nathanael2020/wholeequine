@@ -1,0 +1,24 @@
+<div id="cart_bag_sec">
+  <% unless current_order.nil? or current_order.line_items.empty? %>
+
+  <div class="cartcenter">
+      <% current_order.line_items.each  do |item| %>
+      <ul class="cartitem_smal">
+        <li class="qty">
+          <%= link_to small_image(item.variant.product), item.variant.product %>
+        </li>
+        <li class="prods txt" >
+          <%= link_to item.variant.product.name,  product_path(item.variant.product) %>
+        </li>
+
+      </ul>
+      <% end %>
+
+    <ul class="crtbtns">
+      <li>
+        <a href="/cart" class="continue button gray"><i class="icon-right"></i><%= t('view_cart')%></a>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>

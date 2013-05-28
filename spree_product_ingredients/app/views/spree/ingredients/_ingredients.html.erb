@@ -1,0 +1,59 @@
+<!--<table class='table-window-ingredients table' >
+
+  <tr>
+    <th>Products</th>
+    <% @order.product_servings(current_currency).each do |product| %>
+    <th><%= product.name %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <td>Servings Per Container</td>
+    <% @order.product_servings(current_currency).each do |product| %>
+    <td><%= product.serving_display(current_currency) %></td>
+    <% end %>
+
+  </tr>
+  <tr>
+    <td>Price Per Serving</td>
+    <% @order.product_servings(current_currency).each do |product| %>
+    <td><%= product.price_per_serving_display(current_currency) %></td>
+    <% end %>
+
+  </tr>
+
+</table>-->
+<table class='table-window-ingredients table' >
+  <tr>
+    <th>Ingredient</th>
+    <% @order.ingredient_table_head.each do |h_product| %>
+    <th><%= h_product.name %></th>
+    <% end %>
+    <th>Total</th>
+  </tr>
+
+  <% @order.ingredient_table.each do |ingredient, ing_products| %>
+  <% @total_item = 0 %>
+  <tr class='line_items'>
+    <td>
+      <span class='ingredient_tooltips'  data-powertip_name='<%= ingredient.name %>'  data-powertip_desc= '<%= ingredient.description %>' >
+
+        <%= ingredient.name %>
+      </span>
+    </td>
+
+    <% @order.ingredient_table_head.each do |h_product| %>
+    <td>
+      <% if current_product = ing_products.detect{|j| h_product.id == j.product_id} %>
+      <%# @current_item = current_product.product.amount_ingredient(ingredient) * current_product.item.quantity; @total_item += @current_item %>
+      <% @current_item = current_product.product.amount_ingredient(ingredient); @total_item += @current_item %>
+      <%= @current_item %>
+      <%= ingredient.unit %>
+      <% end %>
+    </td>
+    <% end %>
+
+
+    <td><%= @total_item %><%= ingredient.unit %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,98 @@
+<% content_for :sidebar do %>
+<div data-hook="homepage_sidebar_navigation">
+  <% if "products" == params[:controller] && @taxon %>
+  <%= render :partial => 'spree/shared/filters' %>
+  <% else %>
+  <%= render :partial => 'spree/shared/taxonomies' %>
+  <% end %>
+</div>
+<div id="recently-viewed" data-hook="recently_viewed">
+  <%= render :partial => 'spree/shared/recently_viewed_products' %>
+</div>
+
+<%= render :partial => 'taxons' %>
+
+<% end %>
+
+
+
+<div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+  <% @body_id = 'product-details' %>
+
+  <div class="columns twelve alpha" data-hook="product_left_part">
+    <div class="row" data-hook="product_left_part_wrap">
+
+      <span id="product-images" data-hook="product_images">
+        <span id="main-image" data-hook>
+          <%= render :partial => 'image' %>
+        </span>
+        <span id="thumbnails" data-hook>
+          <%= render :partial => 'thumbnails' %>
+        </span>
+
+      </span>
+
+        <h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
+
+      <span id="cart-form" data-hook="cart_form">
+        <%= render :partial => 'cart_form' %>
+      </span>
+
+
+    </div>
+  </div>
+
+  <div class="columns twelve omega" data-hook="product_right_part">
+
+    <div id="tabs">
+      <ul>
+        <li><a href="#prod_tab_1"><span>Description</span></a></li>
+        <li><a href="#prod_tab_2"><span>Details</span></a></li>
+        <li><a href="#prod_tab_3"><span>Reviews</span></a></li>
+        <li><a href="#prod_tab_4"><span>Label</span></a></li>
+      </ul>
+      <div id="prod_tab_1">
+        <div id="product-description" data-hook="product_description">
+
+          <div itemprop="description" data-hook="description">
+            <%= product_description(@product) rescue t(:product_has_no_description) %>
+          </div>
+
+        </div>
+
+      </div>
+      <div id="prod_tab_2">
+
+        <div data-hook="product_properties">
+          <%= render :partial => 'properties' %>
+        </div>
+
+      </div>
+
+      <div id="prod_tab_3">
+
+        <div id="blah" data-hook>
+	        <%= render :partial => 'spree/shared/reviews' %>
+        </div>
+
+      </div>
+
+
+      <div id="prod_tab_4">
+
+        <div id="blah" data-hook>
+	        Product label goes here...
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row" data-hook="product_right_part_wrap">
+
+    </div>
+
+  </div>
+</div>
+
+</div>

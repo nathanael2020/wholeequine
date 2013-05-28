@@ -1,0 +1,59 @@
+<div data-hook="search_results">
+  <% if @products.empty? %>
+  <h6 class="search-results-title"><%= t(:no_products_found) %></h6>
+  <% else %>
+    <% if @products.supplement.exists? %>
+    <% @supplment_products = @products.supplement.sort_by(&:id) %>
+    <% @supplment_taxons = @supplment_products.map{|j|
+       @taxon ? j.taxons.select{ |v| v.self_and_ancestors.include?(@taxon) } : j.taxons }.flatten.uniq %>
+    <% @supplment_current_taxon = @supplment_taxons.first %>
+    <% @ingredients_table = Spree::Product.ingredients_table(@supplment_products) %>
+
+    <h6 class="search-results-title">
+      <%= t(:search_results_ingredients, :keywords => '')  %>
+      <%= select_tag :ingredient_taxon,  options_for_select(@supplment_taxons.map{|v| [ v.name, v.id ]})%>
+    </h6>
+
+    <table class='table-search-result-ingredients table'>
+      <tr>
+        <th>Ingredient</th>
+        <% @supplment_products.select{|j| j.taxon_ids.include?(@supplment_current_taxon.id) }.each do |product| %>
+        <th><%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %></th>
+        <% end %>
+      </tr>
+
+
+
+
+        <% @ingredients_table.each do |ingredient, items| %>
+        <tr>
+        <td>
+          <span class='ingredient_tooltips'  data-powertip_name='<%= ingredient.name %>'  data-powertip_desc= '<%= ingredient.description %>' >
+            <%= ingredient.name %>
+          </span>
+        </td>
+        <% @supplment_products.select{|j| j.taxon_ids.include?(@supplment_current_taxon.id) }.each do |product| %>
+          <td>
+            <% if current_product = items.detect{|j| product.id == j.product_id} %>
+            <% @current_item = current_product.product.amount_ingredient(ingredient)  %>
+            <%= @current_item %>
+            <%= ingredient.unit %>
+            <% end %>
+          </td>
+
+        <% end %>
+        </tr>
+        <% end %>
+
+    </table>
+
+    <% else %>
+    <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+    <% end %>
+  <% end %>
+</div>
+
+<script>
+  supplment_products = <%= @supplment_products.to_json(:include => :taxons ).html_safe %>;
+  ingredients_table = <%= @ingredients_table.to_a.to_json.html_safe %>;
+</script>

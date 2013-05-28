@@ -1,0 +1,75 @@
+
+<div style="float:left; width:79%;position:relative;border-right: 1px gray solid;height:100%;">
+  <a class="close">close</a>
+  <div class="title-bar  titlebar-on"  style="height:24px;">
+    <div class="grp titlebar-content">
+      <h1 class="title large cufon-replaced">1 ITEM ADDED TO YOUR BAG</h1>
+    </div>
+  </div>
+  <hr />
+
+  <% @populator.last_items.each do |item| %>
+  <div>
+    <div style="float:left;">
+      <%= link_to product_image(item.product), item.product %>
+    </div>
+    <div id="product-description" data-hook="product_description">
+
+      <h1 class="product-title" itemprop="name"><%= item.product.name %></h1>
+      <div>
+        <%= t(:price) %>
+        <span class="price selling" itemprop="price"><%= item.product.price_in(current_currency).display_price %></span>
+      </div>
+      <% @product_properties = item.product.product_properties.includes(:property) %>
+      <div style="height: 100px; overflow: scroll;" >
+        <% unless @product_properties.empty? %>
+        <h6 class="product-section-title"><%= t('properties')%></h6>
+        <table class="table-display" data-hook>
+          <tbody>
+            <% @product_properties.each do |product_property| %>
+            <% css_class = cycle('even', 'odd', :name => "properties") %>
+            <tr class="<%= css_class %>">
+              <td><strong><%= product_property.property.presentation %></strong></td>
+              <td><%= product_property.value %></td>
+            </tr>
+            <% end %>
+            <% reset_cycle('properties') %>
+          </tbody>
+        </table>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+  <hr />
+  <div class="total" style="font-size: 60%;">
+      <span><%= "#{current_order.item_count} Items in " %><%= link_to "Your Shopping Bag", spree.cart_path %></span>
+      <span style="right: 10px;position: absolute;">SUBTOTAL: <%= current_order.display_total %></span>
+  </div>
+  <hr />
+
+  <div class="footer">
+    <div class="grp footer-bar-content">
+      <div class="grp footer-bar-buttons">
+
+        <%= link_to spree.products_path, :class => "continue button gray",:id =>'preview_population_continue_shoppin' do %>
+        <i class="icon-right"></i><%= t('continue_shopping')%>
+        <% end %>
+
+        <%= link_to spree.cart_path, :class => "button checkout primary" do %>
+        <i class="icon-right"></i><%= t('view_cart')%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="float:right;width:20%;">
+  <div style="height:24px;">
+    JUST FOR YOU
+  </div>
+  <hr />
+  <%= image_tag 'http://placehold.it/190x150' %>
+  <%= image_tag 'http://placehold.it/190x150' %>
+</div>

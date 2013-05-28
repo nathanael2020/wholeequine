@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  
+  <style>
+  .ui-autocomplete {
+    max-height: 400px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    font-size: 10pt;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 400px;
+  }
+  
+    .ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+
+}
+
+
+  </style>
+  
+  
+    <script>
+    
+    	var $j = jQuery.noConflict();
+
+  $j.widget( "custom.catcomplete", $j.ui.autocomplete, {
+    _renderMenu: function( ul, items ) {
+      var that = this,
+        currentCategory = "";
+      $j.each( items, function( index, item ) {
+        if ( item.category != currentCategory ) {
+          ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+          currentCategory = item.category;
+        }
+        that._renderItemData( ul, item );
+      });
+    }
+  });
+  </script>
+  
+<script>
+	
+  $j(function() {
+    var data = [
+{ label: "Zephyr's Garden", category: "Brand" },
+{ label: "Anti-Inflammatory", category: "Category" },
+{ label: "Fly Spray", category: "Category" },
+{ label: "Hoof Care", category: "Category" },
+{ label: "Joint Care", category: "Category" },
+{ label: "Metabolic Health", category: "Category" },
+{ label: "Salves", category: "Category" },
+{ label: "Slow Feeder", category: "Category" },
+{ label: "Supplements", category: "Category" },
+{ label: "Abscess", category: "Condition" },
+{ label: "Anxiety", category: "Condition" },
+{ label: "Arthritis", category: "Condition" },
+{ label: "Calming", category: "Condition" },
+{ label: "Colic", category: "Condition" },
+{ label: "Dewormers", category: "Condition" },
+{ label: "Digestion", category: "Condition" },
+{ label: "Endocrine", category: "Condition" },
+{ label: "Energy", category: "Condition" },
+{ label: "Enterococcus faecium", category: "Condition" },
+{ label: "Equine anhidrosis", category: "Condition" },
+{ label: "Equine Cushing's Disease", category: "Condition" },
+{ label: "Gastrointestinal", category: "Condition" },
+{ label: "Heaves", category: "Condition" },
+{ label: "Hyperthyroidism", category: "Condition" },
+{ label: "Hypothyroidism", category: "Condition" },
+{ label: "Insect Control", category: "Condition" },
+{ label: "Insulin Resistance", category: "Condition" },
+{ label: "Irritable", category: "Condition" },
+{ label: "Laminitis", category: "Condition" },
+{ label: "Parasites", category: "Condition" },
+{ label: "Picky Eater", category: "Condition" },
+{ label: "PPID", category: "Condition" },
+{ label: "Pregnancy", category: "Condition" },
+{ label: "Recurrent Airway Obstruction RAO", category: "Condition" },
+{ label: "Amino Acids", category: "Ingredient" },
+{ label: "Arganine", category: "Ingredient" },
+{ label: "Ascorbic Acid Vitamin C", category: "Ingredient" },
+{ label: "Aspirin", category: "Ingredient" },
+{ label: "Betaine", category: "Ingredient" },
+{ label: "Biotin", category: "Ingredient" },
+{ label: "Boswellia", category: "Ingredient" },
+{ label: "Cetylated Fatty Acids", category: "Ingredient" },
+{ label: "Chamomile", category: "Ingredient" },
+{ label: "Chaste Berry", category: "Ingredient" },
+{ label: "Choline", category: "Ingredient" },
+{ label: "Chondroitin", category: "Ingredient" },
+{ label: "Cobalamin Vitamin B12", category: "Ingredient" },
+{ label: "Cobalt Glucoheptonate", category: "Ingredient" },
+{ label: "Collagen", category: "Ingredient" },
+{ label: "Copper", category: "Ingredient" },
+{ label: "Curcumin", category: "Ingredient" },
+{ label: "Cystine", category: "Ingredient" },
+{ label: "Devil's Claw", category: "Ingredient" },
+{ label: "Dimethylglycine DMG", category: "Ingredient" },
+{ label: "Flaxseed", category: "Ingredient" },
+{ label: "Folic Acid", category: "Ingredient" },
+{ label: "Garlic", category: "Ingredient" },
+{ label: "Glucosamine", category: "Ingredient" },
+{ label: "Glycine", category: "Ingredient" },
+{ label: "Grape Seed Extract", category: "Ingredient" },
+{ label: "Hops", category: "Ingredient" },
+{ label: "Hydrolonic Acid", category: "Ingredient" },
+{ label: "Inositol", category: "Ingredient" },
+{ label: "Iodine", category: "Ingredient" },
+{ label: "Iron", category: "Ingredient" },
+{ label: "L-Tryptophan", category: "Ingredient" },
+{ label: "Lactobacillus acidophilus", category: "Ingredient" },
+{ label: "Lactobacillus casei", category: "Ingredient" },
+{ label: "Lactobacillus plantarum", category: "Ingredient" },
+{ label: "Lemon Balm", category: "Ingredient" },
+{ label: "Lysine", category: "Ingredient" },
+{ label: "Magnesium", category: "Ingredient" },
+{ label: "Manganese", category: "Ingredient" },
+{ label: "Methionine", category: "Ingredient" },
+{ label: "Methylsulfonylmethane", category: "Ingredient" },
+{ label: "MSM", category: "Ingredient" },
+{ label: "Niacinamide", category: "Ingredient" },
+{ label: "Omega 3 Fatty Acid", category: "Ingredient" },
+{ label: "Omega 6 Fatty Acid", category: "Ingredient" },
+{ label: "Passion Flower", category: "Ingredient" },
+{ label: "Phenylalanine", category: "Ingredient" },
+{ label: "Phosphatidylcholine", category: "Ingredient" },
+{ label: "Phosphorus", category: "Ingredient" },
+{ label: "Prebiotics", category: "Ingredient" },
+{ label: "Probiotics", category: "Ingredient" },
+{ label: "Proline", category: "Ingredient" },
+{ label: "Pyridoxine HCL Vitamin B6", category: "Ingredient" },
+{ label: "Raspberry Leaf", category: "Ingredient" },
+{ label: "Riboflavin", category: "Ingredient" },
+{ label: "Selenium", category: "Ingredient" },
+{ label: "Silica", category: "Ingredient" },
+{ label: "Skullcap", category: "Ingredient" },
+{ label: "Taurine", category: "Ingredient" },
+{ label: "Thiamin HCL Vitamin B1", category: "Ingredient" },
+{ label: "Tyrosine", category: "Ingredient" },
+{ label: "Valerian", category: "Ingredient" },
+{ label: "Vervain", category: "Ingredient" },
+{ label: "White Willow", category: "Ingredient" },
+{ label: "Yucca Root", category: "Ingredient" },
+{ label: "Zinc", category: "Ingredient" },
+{ label: "Colt", category: "Other" },
+{ label: "Farrier", category: "Other" },
+{ label: "Foal", category: "Other" },
+{ label: "Gelding", category: "Other" },
+{ label: "Grooming", category: "Other" },
+{ label: "Mare", category: "Other" },
+{ label: "Muscle Care", category: "Other" },
+{ label: "Senior", category: "Other" },
+{ label: "Stallion", category: "Other" },
+{ label: "Stomach", category: "Other" }    ];
+    
+    $j( "#tags" ).catcomplete({
+      delay: 300,
+      source: data
+    });
+  });
+  </script>
+
+<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+<%= form_tag spree.products_path, :method => :get do %>
+  <%= search_field_tag :keywords, params[:keywords], :placeholder => t(:search), :id => "tags" %>
+  <%= submit_tag t(:search), :name => nil %>
+<% end %>

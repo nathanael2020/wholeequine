@@ -1,0 +1,32 @@
+<div class="row">
+ <div class="twelve columns alpha omega">
+    <%= f.field_container :name do %>
+      <%= f.label :name %> <span class="required">*</span><br />
+      <%= f.text_field :name, :class => 'fullwidth title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+
+    <%= f.field_container :unit do %>
+      <%= f.label :unit %> <span class="required">*</span><br />
+      <%= f.text_field :unit, :class => 'fullwidth title' %>
+      <%= f.error_message_on :unit %>
+    <% end %>
+
+  </div>
+
+  <div class="twelve columns alpha omega">
+    <%= f.field_container :taxons do %>
+      <%= f.label :taxon_ids, t(:taxons) %><br />
+      <%= f.hidden_field :taxon_ids, :value => f.object.taxon_ids.join(',') %>
+    <% end %>
+  </div>
+
+ <div class="twelve columns alpha omega">
+    <%= f.field_container :description do %>
+      <%= f.label :description, t(:description) %>
+      <%= f.text_area :description, {:rows => '3', :class => 'fullwidth'} %>
+      <%= f.error_message_on :description %>
+    <% end %>
+  </div>
+
+</div>

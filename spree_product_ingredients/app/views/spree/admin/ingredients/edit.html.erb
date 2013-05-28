@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+   <%= t("ingredient.ingredients") %> <i class="icon-arrow-right"></i>
+   <%= t("ingredient.editing_ingredient") %> "<%= @ingredient.name %>"
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= button_link_to t(:back_to_ingredients_list), spree.admin_ingredients_url, :icon => 'icon-arrow-left' %></li>
+<% end %>
+
+<%= render "spree/shared/error_messages", :target => @ingredient %>
+
+<%= form_for [:admin, @ingredient] do |f| %>
+  <fieldset class="no-border-top">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>

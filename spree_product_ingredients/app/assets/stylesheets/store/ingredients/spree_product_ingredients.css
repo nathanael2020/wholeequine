@@ -1,0 +1,53 @@
+
+table.table-cart-ingredients  {
+    padding: 4px;
+    margin: 4px;
+    font-size: 85%;
+    float: right;
+    border: 0.1em solid gray;
+}
+
+table.table-cart-ingredients tbody tr {
+    border-bottom: 0.1em solid gray;
+}
+table.table-cart-ingredients th {
+    border-left: 0.1em solid gray;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+table.table-window-ingredients  {
+    padding: 4px;
+    margin: 4px;
+    font-size: 85%;
+    border: 0.1em solid gray;
+}
+
+table.table-window-ingredients tbody tr {
+    border-bottom: 0.1em solid gray;
+}
+table.table-window-ingredients th {
+    border-left: 0.1em solid gray;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+/* search table */
+
+table.table-search-result-ingredients  {
+    padding: 4px;
+    margin: 4px;
+    font-size: 85%;
+    border: 0.1em solid gray;
+}
+
+table.table-search-result-ingredients tbody tr {
+    border-bottom: 0.1em solid gray;
+}
+table.table-search-result-ingredients th {
+    border-left: 0.1em solid gray;
+    padding-left: 4px;
+    padding-right: 4px;
+}

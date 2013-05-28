@@ -1,0 +1,19 @@
+table {
+  thead {
+    background-color: lighten(#50A2F3, 30);  
+    color: #50A2F3;
+
+    th {
+      font-weight: 600;  
+      font-size: 14px;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        font-size: 14px;
+      }
+    }  
+  }
+}

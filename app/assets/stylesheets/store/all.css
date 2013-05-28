@@ -1,0 +1,1093 @@
+
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+
+ *= require store/spree_core
+ *= require store/spree_promo
+
+ *= require store/spree_reviews
+
+
+ *= require ./jquery-ui
+ *= require jquery.bxslider
+ *= require icons
+ *= require icons-codes
+ *= require store/ingredients
+ *= require_self
+ *= require_tree .
+
+*/
+
+
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+
+	body {
+	
+		background-image: url('/assets/whole_equine_background2_2048_gradient.jpg');
+		padding-top: 0px;
+		background-position: left top;
+		background-repeat: repeat;
+		background-color: #ffffff;
+		background-attachment: fixed;
+		background-size: cover;
+		font-family: Gill Sans;
+/*		color: #333333 !important;
+		font-weight: 400;
+		font-size: 12pt;
+		line-height: 24px;
+ *= require store/spree_product_ingredients
+*/	
+	}
+
+}
+
+body {
+	
+	background-image: url('/assets/whole_equine_background2_1400_gradient.jpg');
+	padding-top: 0px;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-color: #ffffff;
+background-attachment: fixed;
+		background-size: cover;
+		font-family: Gill Sans;
+		color: #333333;
+		font-weight: 400;
+		font-size: 12pt;
+	
+}
+
+
+/*a {
+text-decoration: none;
+color: #0033ee;
+}
+ *= require store/spree_product_ingredients
+*/
+
+#tabs .ui-widget-header {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #c0c0c0;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+#tabs .ui-state-default {
+	background: transparent;
+	border: none;
+		font-size: 12pt;
+
+}
+#tabs .ui-state-active {
+	background: transparent url(img/uiTabsArrow.png) no-repeat bottom center;
+	border: none;
+}
+#tabs .ui-state-default a {
+	color: #999999 !important;
+}
+
+#tabs .ui-state-active a {
+	color: #000000 !important;
+}
+
+#tabs .ui-widget {
+font-size: 12pt/*{fsDefault}
+ *= require store/spree_product_ingredients
+*/;
+}
+
+/*
+#tabs .ui-widget-content {
+font-family: inherit;
+font-size: inherit;
+} *= require store/spree_product_ingredients
+*/
+
+#tabs .ui-tabs .ui-tabs-nav li {
+list-style: none;
+white-space: nowrap;
+}
+
+#tabs .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+cursor: text;
+}
+
+#tabs .ui-helper-reset {
+line-height: 1.3;
+font-size: 100%;
+list-style: none;
+}
+
+.ui-tabs .ui-tabs-nav {
+
+	padding: 0em !important;
+
+
+}
+.ui-tabs .ui-tabs-panel {
+	display: block;
+	border-width: 0;
+	padding: 0em !important;
+	background: none;
+	font-family: 'Gill Sans';
+	font-size: 13px;
+
+}
+
+.ui-widget-content {
+border: 0px solid #aaaaaa !important;
+background: #ffffff/*{bgColorContent}
+ *= require store/spree_product_ingredients
+*/ url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}
+ *= require store/spree_product_ingredients
+*/ 50%/*{bgContentXPos}
+ *= require store/spree_product_ingredients
+*/ 50%/*{bgContentYPos}
+ *= require store/spree_product_ingredients
+*/ repeat-x/*{bgContentRepeat}
+
+ *= require store/spree_product_ingredients
+*/;
+color: #222222/*{fcContent} *
+ *= require store/spree_product_ingredients
+*/;
+}
+
+.ui-tabs .ui-tabs-nav li {
+list-style: none;
+float: left;
+position: relative;
+top: 1px;
+margin: 0 .2em 1px 0;
+border-bottom: 0 !important;
+padding: 0;
+white-space: nowrap;
+}
+
+#tabs .ui-helper-clearfix {
+zoom: 1;
+}
+
+#tabs .ui-helper-reset {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+line-height: 1.3;
+text-decoration: none;
+font-size: 100%;
+list-style: none;
+}
+
+.ui-helper-clearfix::after {
+clear: both;
+}
+
+.ui-helper-clearfix::before, .ui-helper-clearfix::after {
+content: "";
+display: table;
+}
+
+#tabs .ui-tabs { position: relative; padding-right: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed")
+ *= require store/spree_product_ingredients
+*/
+.ui-tabs .ui-tabs-nav li a { margin: 0; padding-left: 0em !important; }
+
+/*.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; } *= require store/spree_product_ingredients
+*/
+
+#tabs .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; padding: 0; white-space: nowrap; }
+
+#tabs .ui-tabs .ui-tabs-nav li a { float: left; padding: 0em; text-decoration: none; }
+#tabs .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
+#tabs .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+#tabs .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere...
+
+ *= require store/spree_product_ingredients
+*/
+
+/*.ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 0em ; background: none; } *= require store/spree_product_ingredients
+*/
+/* #tabs .ui-tabs .ui-tabs-hide { display: none !important; }  *= require store/spree_product_ingredients
+*/
+#tabs .ui-tabs-hide { display: none !important; }
+
+
+#reviews div.header {
+  font-size: 12pt;
+  font-weight: bold;
+  border-bottom: 1px #2222aa dashed;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#reviews div.review {
+  border-bottom: 1px #2222aa dashed;
+  margin-bottom: 10px;
+}
+
+#reviews div.review span.title {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+#reviews div.review span.attribution {
+  font-size: 8pt;
+}
+
+.lit {
+  background-color: #aaaaaa;
+  color: #0000bb;
+  margin-right: 1px;
+  padding-left: 1px;
+}
+
+.unlit {
+  background-color: #aaaaaa;
+  color: #000000;
+  margin-right: 1px;
+  padding-left: 1px;
+}
+
+.star-rating-control {
+  display: inline-block;
+  height: 15px;
+}
+
+.review_hr {
+  size: 1px;
+  background: silver;
+  border: none;
+  margin: 1em 0;
+}
+
+/*
+ * jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/
+ **************************************************************************
+ *= require store/spree_product_ingredients
+*/
+
+div.rating-cancel, div.star-rating {
+  float: left;
+  width: 17px;
+  height: 15px;
+  text-indent: -999em;
+  cursor: pointer;
+  display: block;
+  background: transparent;
+  overflow: hidden
+}
+
+div.rating-cancel a, div.star-rating a {
+  display: block;
+  width: 16px;
+  height: 100%;
+  background-position: 0 0px;
+  border: 0
+}
+
+div.star-rating-on, div.star-rating-on a {
+  background-position: 0 -32px !important
+}
+
+div.star-rating-hover, div.star-rating-hover a {
+  background-position: 0 -32px !important;
+}
+
+/* Read Only CSS
+
+ *= require store/spree_product_ingredients
+*/
+div.star-rating-readonly a {
+  cursor: default !important
+}
+
+/* Partial Star CSS
+ *= require store/spree_product_ingredients
+*/
+div.star-rating {
+/*
+This caused the review stars not to show up
+background-color: transparent !important;
+overflow: hidden !important
+ *= require store/spree_product_ingredients
+*/
+}
+
+/* END jQuery.Rating Plugin CSS
+ *= require store/spree_product_ingredients
+*/
+
+
+
+.progress-steps li {
+float: left;
+margin-right: 20px;
+font-weight: bold;
+text-transform: uppercase;
+padding: 5px 5px;
+color: #727276;
+}
+
+
+nav#taxonomies .taxons-list li a {
+font-size: 12pt;
+}
+
+
+  table#cart-detail {
+    width: 100%;
+    tbody#line_items {
+      tr {
+
+        td[data-hook="cart_item_price"], td[data-hook="cart_item_total"] {
+          @extend span.price;
+          @extend span.price.selling;
+        }
+        td[data-hook="cart_item_quantity"] {
+          .line_item_quantity {
+            width: 20px;
+          }
+        }
+        td[data-hook="cart_item_delete"] {
+          .delete {
+            display: block;
+            width: 20px;
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+  h6.product-section-title {
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(217, 217, 219, 1);
+      margin-bottom: 5px;
+
+    margin-top: 15px;
+  }
+
+   nav#taxonomies .taxonomy-root {
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(217, 217, 219, 1);
+      margin-bottom: 5px;
+
+    margin-top: 15px;
+  }
+
+  ul.taxons-list-1 {
+
+  }
+
+  ul.taxons-list-0 {
+   margin-left: 15px;
+  }
+
+  div.header-image {
+
+	background-color: transparent;
+	margin:0px;
+/*	height:100px; *= require store/spree_product_ingredients
+*/
+
+  }
+
+  nav #main-nav-bar {
+text-transform: uppercase;
+font-weight: bold;
+margin-top: 0px;
+margin-bottom: 10px;
+/*border-bottom: 1px solid #d9d9db; *= require store/spree_product_ingredients
+*/
+border-bottom: none;
+padding-bottom: 6px;
+}
+
+#top-nav-bar a {
+
+	color: #333333;
+
+}
+
+
+#main-nav-bar a {
+
+	color: #333333;
+
+}
+
+img.brand {
+	
+	vertical-align: bottom;
+	
+}
+
+
+
+footer.fixed-footer {
+	
+	position: fixed;
+	bottom:0;
+	min-height: 80px;
+	width:100%;
+/*	background-color: white; *= require store/spree_product_ingredients
+*/
+/*	border-top:1px solid #000000; *= require store/spree_product_ingredients
+*/
+	background-image: url('/assets/whole_equine_background2_1400_gradient.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+
+-webkit-box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+-moz-box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+
+}
+
+div.inner-fixed-footer {
+	
+background: -moz-linear-gradient(top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 100%); /* FF3.6+  *= require store/spree_product_ingredients
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0.1))); /* Chrome,Safari4+  *= require store/spree_product_ingredients
+*/
+background: -webkit-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* Chrome10+,Safari5.1+  *= require store/spree_product_ingredients
+*/
+background: -o-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* Opera 11.10+  *= require store/spree_product_ingredients
+*/
+background: -ms-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* IE10+  *= require store/spree_product_ingredients
+*/
+background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* W3C  *= require store/spree_product_ingredients
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3ffffff', endColorstr='#22ffffff',GradientType=0 ); /* IE6-9  *= require store/spree_product_ingredients
+*/
+
+height: 61px;
+
+}
+
+
+
+nav#taxonomies .taxonomy-root {
+text-transform: uppercase;
+border-bottom: 1px solid rgba(217, 217, 219, 1);
+margin-bottom: 5px;
+margin-top: 0px;
+}
+
+
+
+#subheader .container {
+position: relative;
+width: 100%;
+margin: 0 auto;
+padding: 0;
+background: transparent;
+/*background-color: rgba(255,255,255,0.9); *= require store/spree_product_ingredients
+*/
+}
+
+
+.home-container {
+position: relative;
+width: 960px;
+margin: 0 auto;
+padding: 0;
+background: transparent;
+/*background-color: rgba(255,255,255,0.9); *= require store/spree_product_ingredients
+*/
+}
+
+
+
+.content {
+  background-color: transparent;
+  padding: 10px;
+  margin-top: 150px; /* negative indent the amount of the padding to maintain the grid system  *= require store/spree_product_ingredients
+*/
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  z-index: 1;
+/*  position: inherit; *= require store/spree_product_ingredients
+*/
+  width: 100%;
+  display: block;
+}
+
+
+.row {
+
+	margin-bottom: 0px;
+
+}
+
+#header.row {
+
+
+min-height: 40px;
+padding-left: 0px;
+padding-right: 0px;
+
+margin-bottom: 0px;
+
+background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 90%); /* FF3.6+  *= require store/spree_product_ingredients
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(90%,rgba(255,255,255,0.75))); /* Chrome,Safari4+  *= require store/spree_product_ingredients
+*/
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 90%); /* Chrome10+,Safari5.1+  *= require store/spree_product_ingredients
+*/
+background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 90%); /* Opera 11.10+  *= require store/spree_product_ingredients
+*/
+background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 90%); /* IE10+  *= require store/spree_product_ingredients
+*/
+background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 90%); /* W3C  *= require store/spree_product_ingredients
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bfffffff',GradientType=0 ); /* IE6-9  *= require store/spree_product_ingredients
+*/
+
+
+/*-moz-border-radius: 4px;
+border-radius: 4px;
+
+ *= require store/spree_product_ingredients
+*/
+
+-webkit-box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+-moz-box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+}
+
+/*
+#reviews div.review {
+  border-top: 1px rgb(217, 217, 219) solid;
+  border-bottom: none;
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+p.ratings-stars {
+display: block;
+-webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+
+div.review {
+
+	margin-top: 15px;
+
+}
+
+.ratings, .ratings-stars {
+	line-height: 0;
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+#ratings .p {
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+ *= require store/spree_product_ingredients
+*/
+
+a {
+
+	color: #55733c;
+}
+
+
+.container .column, .container .columns {
+	float: left;
+	display: inline;
+/*	margin-left: 10px;
+	margin-right: 10px;
+ *= require store/spree_product_ingredients
+*/	color: #333333;
+}
+
+.container .sixteen.columns {
+/*background-color: rgba(255,255,255,1); *= require store/spree_product_ingredients
+*/
+	width: 980px;
+}
+
+
+.container .four.columns {
+/*
+background-color: rgba(255,255,255,1);
+padding: 0px;
+ *= require store/spree_product_ingredients
+*/
+}
+
+.container .twelve.columns {
+	margin-left: auto;
+	margin-right: auto;
+
+/*
+background-color: rgba(255,255,255,1);
+padding: 0px;
+ *= require store/spree_product_ingredients
+*/
+}
+
+
+.column.omega, .columns.omega {
+margin-right: 0;
+margin-left: 0;
+padding: 0px;
+}
+
+
+#subheader {
+color: white;
+border-top: 4px solid #6587a0;
+border-bottom: 4px solid #6587a0;
+overflow: hidden;
+
+/*
+background-color: #234d68;
+
+-webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
+box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
+ *= require store/spree_product_ingredients
+*/
+
+}
+
+.container .three.columns {
+width: 28%;
+margin:25px;
+}
+
+
+.container2 .three.columns {
+width: 33%;
+margin:0px;
+}
+
+
+.container .column, .container .columns {
+float: left;
+display: inline;
+margin-left: 0px;
+margin-right: 10px;
+}
+
+
+#wrapper.container {
+
+	background-color: rgba(255,255,255,0.9);
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px solid black;
+	width: 980px;
+}
+
+
+#wrapper.container2 {
+position: relative;
+width: 960px;
+margin: 30px auto;
+padding: 0;
+display: block;
+
+}
+
+#wrapper.container2 {
+
+	width: 980px;
+}
+
+#wrapper p {
+
+	color: black !important;
+
+}
+
+#wrapper a {
+
+	color: #333333 !important;
+
+}
+
+#wrapper form {
+
+	margin-right:0px;
+	max-width: 400px;
+}
+#wrapper form.edit_order {
+
+	margin-right:0px;
+	max-width: 100%;
+}
+
+#wrapper .row {
+
+	margin-left:20px;
+
+}
+
+
+#wrapper2.container {
+
+	background-color: rgba(255,255,255,0.9);
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px solid black;
+	width: 930px;
+}
+
+#wrapper2 p {
+
+	color: black !important;
+
+}
+
+#wrapper2 a {
+
+	color: #333333 !important;
+
+}
+
+#wrapper2 form {
+
+	margin-right:0px;
+	max-width: 300px;
+}
+
+#wrapper2 .row {
+
+	margin-left:20px;
+
+}
+
+
+#header .container .ten.columns {
+	width: 620px;
+}
+
+
+#header .container {
+	width: 1020px;
+}
+
+.container .ten.columns {
+}
+
+span.price.selling {
+
+	font-size: 12pt;
+
+}
+
+ul#products li .price {
+color: #2b5c55;
+font-size: 14pt;
+padding-top: 5px;
+display: block;
+}
+
+ul#products li a.info {
+height: 25px;
+margin-top: 5px;
+font-size: 12pt;
+color: #bbbbbb;
+border-bottom: 1px solid #d9d9db;
+overflow: hidden;
+}
+
+#products p.ratings-stars {
+
+	margin: 10px 0px 0px 0px;
+	padding: 0px;
+
+}
+
+#products div.ratings {
+
+	padding: 0px;
+	line-height: 18px;
+}
+
+.home-page-header {
+
+text-transform: uppercase;
+border-bottom: 1px solid rgba(217, 217, 219, 1);
+margin-bottom: 5px;
+margin-top: 0px;
+padding: 5px;
+max-width: 90%;
+}
+
+.home-page-content {
+
+padding: 10px;
+
+
+}
+
+dl dd {
+margin-left: 0;
+}
+
+li.nested-menu{
+    display: inline !important;
+    position: relative;
+    min-width: 200px;
+}
+
+nav #main-nav-bar li a {
+	font-size: 11pt;
+	font-weight: normal;
+}
+
+nav#top-nav-bar ul li a {
+font-weight: normal;
+font-size: 11pt;
+text-transform: uppercase;
+}
+
+nav #main-nav-bar li:first-child a {
+padding-left: 5px !important;
+}
+
+.nested-menu {
+	
+	font-size: 11pt;
+	font-weight: normal;
+	
+}
+
+li:hover > ul{display: block;}
+ul.dropdown {
+background: #fff;
+width: 300px;
+display: none;
+position: absolute;
+top: 20px;
+z-index: 9999;
+margin-top:0px;
+padding-top: 0px;
+border: 1px solid black;
+border-radius: 10px;
+
+}
+ul.dropdown li {
+display: block;
+height: 20px;
+margin: 10px;
+}
+
+
+
+=======================================================================
+	Header Rules
+=======================================================================
+*/
+#masthead {
+	width:960px;
+	float:left;
+	color:#FFF;
+	margin-left:10px;
+}
+#masthead .logo{
+	float:left;
+	padding-top:26px;
+}
+#masthead .topnav{
+	float:right;
+}
+.topnav p.welcm{
+	float:left;
+	padding:2px 10px 0px 0px;
+	color:#666666;
+}
+.topnav p.welcm a{
+	color:#666666 !important;
+}
+.topnav ul.links{
+	float:left;
+	width:115px;
+	height:21px;
+	padding:3px 0px 0px 20px;
+	list-style:none;
+	background-image:url(../images/top_btns.png);
+	background-repeat:no-repeat;
+	margin-bottom:17px;
+}
+.topnav ul.links li{
+	float:left;
+	padding-right:20px;
+}
+.topnav ul.links li.last{
+	padding-right:0px;
+	padding-left:10px;
+}
+.topnav ul.links li a{
+	color:#fff;
+}
+.cart_bag{ margin-left: -150px }
+.cart_bag a.cartbtn{
+	color:#fff;
+	display:inline-block;
+	width:215px;
+	height:22px;
+	padding:7px 0px 0px 35px;
+	background-repeat:no-repeat;
+	z-index:9;
+	position:absolute;
+}
+.cart_bag a.cartbtn.cart_bag_yellow{
+	color:#fff;
+	display:inline-block;
+	width:215px;
+	height:22px;
+	padding:7px 0px 0px 35px;
+	background-repeat:no-repeat;
+	z-index:9;
+	position:absolute;
+}
+#cart_bag_sec {
+  	border: 1px black solid;
+  	border-radius: 6px;
+  	-webkit-box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+-moz-box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+box-shadow: 0 1px 20px rgba(0,0,0,0.5);
+	background: rgba(255,255,255,1);
+	width:600px;
+	margin-left: -100px;
+	float:left;
+	position:absolute;
+	z-index:8;
+	
+}
+#cart_bag_sec p{
+	float:left;
+	padding:0px 15px 10px 80px !important;
+	color:white;
+}
+#cart_bag_sec .carttop{
+	height:45px;
+	background-position:top;
+	background-repeat:no-repeat;
+	float:left;
+}
+#cart_bag_sec .cartbot{
+	height:15px;
+	background-position:top;
+	background-repeat:no-repeat;
+	float:left;
+}
+#cart_bag_sec .cartcenter{
+	width:95%;
+	background-color: transparent;
+	float:left;
+	background-repeat:repeat-y;
+		margin:15px;
+
+}
+.cartcenter ul.cartitem_smal{
+	float:left;
+	width: 100%;
+	list-style:none;
+	padding:5px 0px;
+	border-bottom:#2a2a2a solid 1px;
+}
+.cartcenter ul.heads{
+	background-repeat:repeat-x;
+	background-position:top;
+	background-color:#07285e;
+	padding:8px 0px 5px 0px;
+}
+.cartcenter ul.last{
+	border:none;
+}
+.cartcenter ul.cartitem_smal li.txt{
+	padding-top:3px !important;
+}
+.cartcenter ul.cartitem_smal li.prods{
+	padding:0px 0px 0px 80px;
+	float:left;
+}
+.cartcenter ul.cartitem_smal li.qty{
+	width:50px;
+	float:left;
+	padding-left: 20px;
+	
+}
+.cartcenter ul.cartitem_smal li.qty input{
+	width:20px;
+	height:20px;
+	float:left;
+	border:#031532 solid 1px;
+	background-color:#07285e;
+	text-align:center;
+	color:#CCC;
+}
+.cartcenter ul.cartitem_smal li.total{
+	padding:0px 0px 0px 15px;
+	float:left;
+}
+.cartcenter ul.cartitem_smal li.subprice{
+	padding:0px 15px 0px 0px;
+	float:right;
+}
+ul.crtbtns {
+	list-style:none;
+	float:left;
+	padding:20px 20px 0px 0px;
+	width:200px;
+}
+ul.crtbtns li{
+	float:left;
+	margin-right:2px;
+	margin-left:2px;
+  padding-left: 2px;
+}
+.cartcenter ul.cartitem_smal li.prods  a {
+    font-size: 11pt !important;
+    padding-left: 70px;
+}
+.previewPopulator {
+visibility: visible;
+width: 502px;
+height: 500px;
+left: 50%;
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.25);
+-webkit-box-shadow: 0 0 10px rgba(0,0,0,.25);
+box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
+}
+.previewPopulator .ui-dialog-titlebar {
+    display:none;
+}
+.previewPopulator .close {
+position: absolute;
+background: url(close.gif) no-repeat 0 0 transparent;
+text-indent: -9999px;
+width: 25px;
+height: 25px;
+overflow: hidden;
+cursor: pointer;
+right: 20px;
+top: 2px;
+}
+.previewPopulator .close:hover {
+background-position: 0 bottom;
+}
+.previewPopulator .footer {
+    bottom: 20px;
+    position: absolute;
+    right: 100px;
+}
+

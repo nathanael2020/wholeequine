@@ -1,0 +1,18 @@
+<div data-hook="admin_tax_rate_form_fields">
+  <div class="alpha twelve columns">
+    <fieldset  class=" no-border-bottom">
+      <div class="alpha six columns">
+        <div  class="field">
+          <%= f.label :ingredient, t(:ingredient) %>
+          <%= f.collection_select(:ingredient_id, Spree::Ingredient.all, :id, :display_name, {}, {:class => 'select2 fullwidth'}) %>
+        </div>
+
+        <div  class="field">
+          <%= f.label :amount_per_serving, t(:amount_per_serving) %>
+          <%= f.text_field :amount_per_serving, :class => 'fullwidth' %>
+        </div>
+
+      </div>
+      </fieldset>
+  </div>
+</div>

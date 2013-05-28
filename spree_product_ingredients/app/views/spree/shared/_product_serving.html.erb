@@ -1,0 +1,22 @@
+<% if @product.serving_options(current_currency).present? %>
+<div data-hook="product_servings">
+  <h6 class="product-section-title"><%= t('servings') %></h6>
+
+  <table id="product-servings" class="table-display" data-hook>
+    <tbody>
+
+      <tr class="even">
+        <td><strong><%= "Servings per container" %></strong></td>
+        <td><%= @product.serving_display(current_currency) %></td>
+      </tr>
+      <tr class="even">
+        <td><strong>Price per Serving</strong></td>
+        <td><%= @product.price_per_serving_display(current_currency) %></td>
+      </tr>
+
+
+
+    </tbody>
+  </table>
+</div>
+<% end %>
