@@ -42,16 +42,17 @@
     </div>
   </div>
 
-  <div class="columns twelve omega" data-hook="product_right_part">
+  <div class="columns twelve omega" data-hook="product_right_part" style="margin-top:20px">
+
+  <h6 class="product-section-title"><%= t(:product_information) %></h6>
 
     <div id="tabs">
       <ul>
-        <li><a href="#prod_tab_1"><span>Description</span></a></li>
-        <li><a href="#prod_tab_2"><span>Details</span></a></li>
-        <li><a href="#prod_tab_3"><span>Reviews</span></a></li>
-        <li><a href="#prod_tab_4"><span>Label</span></a></li>
+        <li><a href="#prod_tab_1" style="font-size: 13px; text-transform: uppercase; font-weight: 600"><span>Description</span></a></li>
+        <li><a href="#prod_tab_2" style="font-size: 13px; text-transform: uppercase; font-weight: 600"><span>Details</span></a></li>
+        <li><a href="#prod_tab_3" style="font-size: 13px; text-transform: uppercase; font-weight: 600"><span>Label</span></a></li>
       </ul>
-      <div id="prod_tab_1">
+      <div id="prod_tab_1" style="height: 200px; overflow: scroll">
         <div id="product-description" data-hook="product_description">
 
           <div itemprop="description" data-hook="description">
@@ -61,7 +62,7 @@
         </div>
 
       </div>
-      <div id="prod_tab_2">
+      <div id="prod_tab_2" style="height: 200px; overflow: scroll">
 
         <div data-hook="product_properties">
           <%= render :partial => 'properties' %>
@@ -69,16 +70,8 @@
 
       </div>
 
-      <div id="prod_tab_3">
 
-        <div id="blah" data-hook>
-	        <%= render :partial => 'spree/shared/reviews' %>
-        </div>
-
-      </div>
-
-
-      <div id="prod_tab_4">
+      <div id="prod_tab_3" style="height: 200px; overflow: scroll">
 
         <div id="blah" data-hook>
 	        Product label goes here...
@@ -87,6 +80,17 @@
       </div>
 
     </div>
+
+
+      <div>
+
+        <div id="blah" data-hook>
+	        <%= render :partial => 'spree/shared/reviews' %>
+        </div>
+
+      </div>
+
+
 
     <div class="row" data-hook="product_right_part_wrap">
 

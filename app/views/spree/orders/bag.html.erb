@@ -4,14 +4,25 @@
   <div class="cartcenter">
       <% current_order.line_items.each  do |item| %>
       <ul class="cartitem_smal">
+
+        <li class="qty" style="padding-top: 40px; height: 50px;">
+          <%= item.quantity %> of
+        </li>
+
         <li class="qty">
           <%= link_to small_image(item.variant.product), item.variant.product %>
         </li>
+        
         <li class="prods txt" >
           <%= link_to item.variant.product.name,  product_path(item.variant.product) %>
         </li>
-        <li class="qty">
-          <%= item.quantity %>
+
+        <li class="prods txt" >
+          <%= link_to item.variant.options_text,  product_path(item.variant.product) %>
+        </li>
+
+        <li class="qty" style="float:right">
+          <%= number_to_currency item.variant.price %>
         </li>
 
       </ul>
@@ -19,7 +30,7 @@
 
     <ul class="crtbtns">
       <li>
-        <a href="/cart" class="continue button gray"><i class="icon-right"></i><%= t('view_cart')%></a>
+        <a href="/cart" class=""><button class="button continue primary"><i class="icon-right"></i><%= t('view_cart')%></a>
         
                 <%= form_for current_order, :url => update_cart_path, :html => {:id => nil, :style=>"display:inline;"} do |order_form| %>
         <%= button_tag :class => 'button checkout primary', :id => nil, :name => 'checkout' do %>

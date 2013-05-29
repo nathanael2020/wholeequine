@@ -26,9 +26,9 @@ Spree::Product.class_eval do
     max_count, min_count = res_count.max, res_count.min
 
     if max_price == min_price
-      max_price / max_count
+      "$#{(max_price / max_count).round(2)}"
     else
-      "#{(min_price / min_count.to_f).round(3) } to #{ (max_price / max_count.to_f).round(3) }"
+      "$#{(min_price / min_count.to_f).round(2) } to $#{ (max_price / max_count.to_f).round(2) }"
     end
   rescue
     nil

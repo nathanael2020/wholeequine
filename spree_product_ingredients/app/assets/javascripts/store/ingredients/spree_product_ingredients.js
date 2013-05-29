@@ -17,15 +17,17 @@ var open_tooltip_in_window = function (options){
 	ingredientWindow.document.write('<head><title>'+window_name+'</title>');
 
 	ingredientWindow.document.write('<style>');
-  ingredientWindow.document.write('body {border: 0.1em solid; cursor: default;background-color: #333;background-color: rgba(0, 0, 0, 0.8);border-radius: 6px;color: #FFF;padding: 10px;position: absolute;white-space: nowrap;z-index: 2147483647;}')
+  ingredientWindow.document.write('body {border: 1px solid; cursor: default;background-color: white;background-color: white;border-radius: 6px;color: #000;padding: 10px 10px 15px 10px; position: absolute;z-index: 2147483647; font-family: "Gill Sans"; font-size: 11pt; line-height: 24px; width:410px; white-space: wrap}')
 
-	ingredientWindow.document.write('.button{ border: 0.1em solid gray ; padding: 4px;}');
+	ingredientWindow.document.write('.button{ border: 0.1em solid gray ; background-color: #ccc; padding: 5px; box-shadow: 2px 2px 4px #666; border-radius: 6px}');
 	ingredientWindow.document.write('</style>');
 	ingredientWindow.document.write('</head>');
 	ingredientWindow.document.write('<body>');
 	ingredientWindow.document.write(content);
 	ingredientWindow.document.write("<hr/><span class='button' onClick='window.close();'>Close</span>");
   ingredientWindow.document.write('</body></html>');
+  ingredientWindow.document.close();
+  
 	};
 
   var init_tooltip =  function(){
@@ -36,6 +38,7 @@ var open_tooltip_in_window = function (options){
       html.push($(el).data('powertip_desc'))
       html.push("</span><hr/>")
       html.push("<a href='#' class='open-tooltip-ingredient'>Open in window</a>")
+      html.push("<a style='margin-left: 15px;' href='../products?utf8=✓&keywords=" + $(el).data('powertip_name') + "'>See everything with " + $(el).data('powertip_name') + "</a>")
       html.push("</html>")
 	    return html.join('');
     });
@@ -48,7 +51,7 @@ var open_tooltip_in_window = function (options){
     var tooltipContent = $(e.currentTarget).parents("#powerTip");
     var ingredient_name = $('.ingredient-name', tooltipContent).text();
     var ingredient_desc = $('.ingredient-desc', tooltipContent).text();
-    open_tooltip_in_window({window_name: 'Ingredient: '+ingredient_name, content: ['Name: ', ingredient_name, '<hr/>', 'Description: ', ingredient_desc ].join(' ')})
+    open_tooltip_in_window({window_name: 'Ingredient: '+ingredient_name, content: [ingredient_name, '<hr/>', 'Description: ', ingredient_desc ].join(' ')})
     return false;
   })
 

@@ -74,7 +74,7 @@ color: #0033ee;
 #tabs .ui-widget-header {
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid #c0c0c0;
+	border-bottom: 1px solid white;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
@@ -83,14 +83,21 @@ color: #0033ee;
 	background: transparent;
 	border: none;
 		font-size: 12pt;
+		margin-right:15px;
 
 }
 #tabs .ui-state-active {
 	background: transparent url(img/uiTabsArrow.png) no-repeat bottom center;
-	border: none;
+	border-bottom: 2px solid white;
 }
 #tabs .ui-state-default a {
 	color: #999999 !important;
+	border-top: 1px solid #444;
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+
 }
 
 #tabs .ui-state-active a {
@@ -129,17 +136,27 @@ list-style: none;
 
 .ui-tabs .ui-tabs-nav {
 
+	padding: 10px 0em 0em 0em !important;
+
+
+}
+
+.ui-tabs {
+
 	padding: 0em !important;
 
 
 }
+
 .ui-tabs .ui-tabs-panel {
 	display: block;
-	border-width: 0;
-	padding: 0em !important;
+	border: 1px solid #444 !important;
+	border-bottom-left-radius: 6px !important;
+	border-bottom-right-radius: 6px !important;
+	padding: 10px !important;
 	background: none;
 	font-family: 'Gill Sans';
-	font-size: 13px;
+	font-size: 12pt;
 
 }
 
@@ -173,7 +190,7 @@ list-style: none;
 float: left;
 position: relative;
 top: 1px;
-margin: 0 .2em 1px 0;
+margin: auto;
 border-bottom: 0 !important;
 padding: 0;
 white-space: nowrap;
@@ -203,11 +220,11 @@ content: "";
 display: table;
 }
 
-#tabs .ui-tabs { position: relative; padding-right: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed")
+#tabs .ui-tabs { position: relative; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed")
  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-.ui-tabs .ui-tabs-nav li a { margin: 0; padding-left: 0em !important; }
+.ui-tabs .ui-tabs-nav li a { margin: 0; padding: 10px !important; }
 
 /*.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; } *= require store/spree_product_ingredients
  *= require store/spree_address_book
@@ -458,7 +475,7 @@ footer.fixed-footer {
 	
 	position: fixed;
 	bottom:0;
-	min-height: 80px;
+	min-height: 40px;
 	width:100%;
 /*	background-color: white; *= require store/spree_product_ingredients
  *= require store/spree_address_book
@@ -478,29 +495,29 @@ box-shadow: 0 1px 20px rgba(0,0,0,0.5);
 
 div.inner-fixed-footer {
 	
-background: -moz-linear-gradient(top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 100%); /* FF3.6+  *= require store/spree_product_ingredients
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.0) 100%); /* FF3.6+  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0.1))); /* Chrome,Safari4+  *= require store/spree_product_ingredients
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0.0))); /* Chrome,Safari4+  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* Chrome10+,Safari5.1+  *= require store/spree_product_ingredients
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.0) 100%); /* Chrome10+,Safari5.1+  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-background: -o-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* Opera 11.10+  *= require store/spree_product_ingredients
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.0) 100%); /* Opera 11.10+  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-background: -ms-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* IE10+  *= require store/spree_product_ingredients
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.0) 100%); /* IE10+  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.1) 100%); /* W3C  *= require store/spree_product_ingredients
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0.0) 100%); /* W3C  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3ffffff', endColorstr='#22ffffff',GradientType=0 ); /* IE6-9  *= require store/spree_product_ingredients
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9  *= require store/spree_product_ingredients
  *= require store/spree_address_book
 */
 
-height: 61px;
+height: 60px;
 
 }
 
@@ -570,7 +587,7 @@ background: transparent;
 min-height: 40px;
 padding-left: 0px;
 padding-right: 0px;
-
+margin-top: 40px;
 margin-bottom: 0px;
 
 background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 90%); /* FF3.6+  *= require store/spree_product_ingredients
@@ -680,6 +697,7 @@ padding: 0px;
 .container .twelve.columns {
 	margin-left: auto;
 	margin-right: auto;
+	width: 750px;
 
 /*
 background-color: rgba(255,255,255,1);
@@ -737,7 +755,7 @@ margin-right: 10px;
 
 #wrapper.container {
 
-	background-color: rgba(255,255,255,0.9);
+	background-color: rgba(255,255,255,0.99);
 	padding: 20px;
 	border-radius: 10px;
 	border: 2px solid black;
@@ -833,6 +851,10 @@ display: block;
 }
 
 .container .ten.columns {
+}
+
+.container .five.columns {
+	width: 450px;
 }
 
 span.price.selling {
@@ -1097,9 +1119,25 @@ box-shadow: 0 1px 20px rgba(0,0,0,0.5);
 ul.crtbtns {
 	list-style:none;
 	float:left;
-	padding:20px 20px 0px 0px;
-	width:200px;
+	padding:20px;
+	width:100%;
+	font-size: 12px;
 }
+
+ul.crtbtns a {
+	display:inline-block;
+}
+
+.prod_name {
+	
+	font-size: 16pt;
+	
+}
+ul.crtbtns button {
+	font-size: 11pt !important;
+	margin-right: 10px;
+}
+
 ul.crtbtns li{
 	float:left;
 	margin-right:2px;
@@ -1152,4 +1190,11 @@ margin: 2px;
 }
 #cats-inputs .cats-item label{
 margin-right: 2px;
+}
+
+.search-results-table {
+	
+	width: 100%;
+	margin-bottom: 25px;
+	
 }

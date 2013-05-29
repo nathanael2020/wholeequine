@@ -1,0 +1,19 @@
+<div style="position:fixed; top:0; heigh:40px; background-image: url('/assets/whole_equine_background2_1400_gradient.jpg'); background-attachment: fixed;	background-size: cover; width: 100%; z-index:1">
+
+          <div style="margin:0 auto; width: 970px">
+
+	          <div style="display:inline; float:left; margin-top: 5px; margin-bottom: 5px">
+	          
+	          <%= form_for :newsletter, :url => subscribe_path, :method => :post do |f| %>
+      <div class="newsletter">      
+        Newsletter:  <input type='email' name='email' size='28' value="<%= t(:newsletter_message) %>">
+        <button>send</button>
+      </div>
+      <% end %>
+
+	          </div>
+
+          </div>
+          
+</div>
+
