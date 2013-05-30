@@ -22,5 +22,13 @@ Spree::Address.class_eval do
       end
     end
 
+    def third_address(user)
+      if user.addresses.size > 2
+        user.addresses.order_by_position.limit(3).last
+      else
+        Spree::Address.default
+      end
+    end
+
   end
 end
