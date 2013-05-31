@@ -8,7 +8,16 @@
           <div style="margin:0 auto; width: 970px">
 
 	          <div style="display:inline; float:left; margin-top: 15px">
-	          
+	          	          
+	          <%= form_for :newsletter, :url => subscribe_path, :method => :post do |f| %>
+      <div class="newsletter">      
+        Register with us:  <input type='email' name='email' size='28' value="<%= t(:newsletter_message) %>">
+        <button>send</button>
+      </div>
+      <% end %>
+
+
+
 	          </div>
 	          
 	          <div style="display:inline; float:right; margin-top: 15px">
