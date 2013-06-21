@@ -30,69 +30,11 @@
   <% end %>
 
 </div>
+<%= render :partial => "addresses"%>
 
-<h3>Addresses</h3>
+<div class="columns alpha sixteen">
 
-<div class="shipping-address">
-  <div class="columns alpha sixteen">
-
-  <% @primary_address = Spree::Address.primary_address(spree_current_user) %>
-  <% @second_address = Spree::Address.secondary_address(spree_current_user) %>
-  <% @third_address = Spree::Address.third_address(spree_current_user) %>
-  
-  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @primary_address } %>
-
-  <div class="columns alpha three">
-    <%= form_for @primary_address, :namespace => "first_address", :html => {:id => "checkout_form_address" } do |f| %>
-    <%= f.hidden_field :position, :value => 1 %>
-    <fieldset>
-      <%= content_tag(:legend, t(:first_address, :scope => :address_book)) %>
-      <div class="inner">
-        <%= render :partial => 'spree/users/address_form', :locals => {   :address_name => 'address',
-        :address_form => f,  :address_type => 'shipping',  :address => @primary_address   } %>
-      </div>
-      <%= f.submit t(:update) %>
-    </fieldset>
-    <% end %>
-  </div>
-
-  <div class="columns alpha three">
-    <%= form_for @second_address, :namespace => "second_address", :html => {:id => "checkout_form_address" } do |f| %>
-    <%= f.hidden_field :position, :value => 2 %>
-    <fieldset>
-      <%= content_tag(:legend, t(:second_address, :scope => :address_book)) %>
-
-      <div class="inner">
-        <%= render :partial => 'spree/users/address_form', :locals => {   :address_name => 'address',
-        :address_form => f,  :address_type => 'billing',  :address => @second_address   } %>
-      </div>
-      <%= f.submit t(:update) %>
-    </fieldset>
-    <% end %>
-    </div>
-
-  <div class="columns alpha three">
-    <%= form_for @third_address, :namespace => "third_address", :html => {:id => "checkout_form_address" } do |f| %>
-    <%= f.hidden_field :position, :value => 2 %>
-    <fieldset>
-      <%= content_tag(:legend, t(:third_address, :scope => :address_book)) %>
-
-      <div class="inner">
-        <%= render :partial => 'spree/users/address_form', :locals => {   :address_name => 'address',
-        :address_form => f,  :address_type => 'weezle',  :address => @third_address   } %>
-      </div>
-      <%= f.submit t(:update) %>
-    </fieldset>
-    <% end %>
-    </div>
-  </div>
-</div>
-
-  </div>
-
-
-
-<div data-hook="account_my_orders-" class="account-my-orders">
+<div data-hook="account_my_orders-" class="account-my-orders" style="margin-top:5px;">
 
   <h3><%= t(:my_orders) %></h3>
   <% if @orders.present? %>
@@ -124,6 +66,5 @@
     <p><%= t(:you_have_no_orders_yet) %></p>
   <% end %>
   <br />
-
 </div>
 </div>

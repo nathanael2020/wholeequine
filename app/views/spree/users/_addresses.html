@@ -1,0 +1,22 @@
+  <% if spree_current_user.addresses.size <= Spree::Address::USER_LIMIT %>
+
+<h3 style="margin-bottom:15px;">Addresses (You can save up to six addresses in your account)</h3>
+
+<span style="margin-top:15px"> <%= link_to "Add address", new_user_address_path, :id => "add-user-address", :class => "button", :style => "background-color: white;" %>
+</span>
+
+<% else %>
+
+<h3 style="margin-bottom:0px;">Addresses</h3>
+
+<% end %>
+
+
+<div class="shipping-address  profile-address" style="display:block; margin-top:15px; margin-bottom:25px;">
+  <div class="columns alpha sixteen">
+    <% Spree::Address.user_addresses_for_edit(spree_current_user, @address).each_with_index do |addr, index| %>
+    <%= render :partial => "address", :locals => {:addr => addr, :index => index }%>
+    <% end %>
+
+  </div>
+</div>

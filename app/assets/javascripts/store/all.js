@@ -14,9 +14,16 @@
 //= require jquery.rating
 //= require store/spree_address_book
 //= require ./spree_fancy
+//= require store/user_addresses
 //= require_self
 
 $(function(){
+
+    $("#sort-products").on("change", function(event){
+        window.location.href = $(this).val();
+    });
+    
+    
     $("#tabs").tabs();
     if (window.show_popup_user_info){
         if (!$("#user-info-popup").length){  $("body").append("<div id='user-info-popup'></div>"); }
@@ -40,43 +47,16 @@ $(function(){
         return false;
     })
 
-    $("#add_new_cat").on("click", function(){
-        var t = $("#table-cats tr:eq(1)").clone();
-        var n = $("#table-cats tr").size() - 1;
+    $("#add_new_horse").on("click", function(){
+        var t = $("#table-horses tr:eq(1)").clone();
+        var n = $("#table-horses tr").size() - 1;
         t.find("td:last").empty();
         $.each($("input", t), function(i, item){
             $(item).attr("name", $(item).attr('name').replace(/\d/, n));
             $(item).val('')
         });
-        $("#table-cats").append(t)
+        $("#table-horses").append(t)
         return false;
     });
-
-    function split( val ) {
-        return val.split( /,\s*/ );
-    }
-    function extractLast( term ) {
-        return split( term ).pop();
-    }
-    var fitnessRoutines =[ 'Running', 'Bicycling', 'Swimming', 'Weight Lifting', 'Yoga', 'Pilates', 'Rowing', 'Martial Arts' ]
-    $("#user_fitness_routines")
-        .autocomplete({
-            minLength: 0,
-            source: function( request, response ) {
-                response( $.ui.autocomplete.filter(
-                    fitnessRoutines, extractLast( request.term ) ) );
-            },
-            focus: function() {
-                // prevent value inserted on focus
-                return false;
-            },
-            select: function( event, ui ) {
-                var terms = split( this.value );
-                terms.pop();
-                terms.push( ui.item.value );
-                terms.push( "" );
-                this.value = terms.join( ", " );
-                return false;
-            }
-        });
+    
 })

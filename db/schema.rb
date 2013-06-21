@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528191540) do
+ActiveRecord::Schema.define(:version => 20130620204518) do
 
   create_table "cats", :force => true do |t|
     t.string   "name"
@@ -55,10 +55,12 @@ ActiveRecord::Schema.define(:version => 20130528191540) do
     t.integer  "user_id"
     t.datetime "deleted_at"
     t.integer  "position",          :default => 0
+    t.string   "name"
   end
 
   add_index "spree_addresses", ["firstname"], :name => "index_addresses_on_firstname"
   add_index "spree_addresses", ["lastname"], :name => "index_addresses_on_lastname"
+  add_index "spree_addresses", ["name"], :name => "index_spree_addresses_on_name"
 
   create_table "spree_adjustments", :force => true do |t|
     t.integer  "source_id"
@@ -474,6 +476,25 @@ ActiveRecord::Schema.define(:version => 20130528191540) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "spree_relation_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "applies_to"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "spree_relations", :force => true do |t|
+    t.integer  "relation_type_id"
+    t.integer  "relatable_id"
+    t.string   "relatable_type"
+    t.integer  "related_to_id"
+    t.string   "related_to_type"
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
+    t.decimal  "discount_amount",  :precision => 8, :scale => 2, :default => 0.0
   end
 
   create_table "spree_return_authorizations", :force => true do |t|

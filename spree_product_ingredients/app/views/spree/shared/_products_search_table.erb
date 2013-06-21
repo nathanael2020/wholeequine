@@ -36,7 +36,16 @@
     <td style="padding-top:25px">
 
       <div class="prod_name" style="vertical-align:top">
-      <%= number_to_currency product.price %>
+
+        <span class="price selling" itemprop="price">
+          <% if product.range_price?(current_currency) %>
+          <%= product.range_price(current_currency)  %>
+          <% else %>
+          <%= product.price_in(current_currency).display_price %>
+          <% end %>
+        </span>
+        
+<!--      <%= number_to_currency product.price %> -->
       </div>
 
 
@@ -64,7 +73,7 @@
     <td colspan=2>
       <div style="margin-bottom:25px">
       <b>Categories:
-        <%= product.taxons.map{|t| "#{link_to(t.name + " (#{t.products.count} items)" , seo_url(t))}"  }.join(', ').html_safe %></b>
+        <%= product.taxons.map{|t| "#{link_to(t.name, seo_url(t))}"  }.join(', ').html_safe %></b>
       </div>
 
     </td>

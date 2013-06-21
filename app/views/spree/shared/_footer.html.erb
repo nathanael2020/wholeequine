@@ -11,7 +11,7 @@
 	          	          
 	          <%= form_for :newsletter, :url => subscribe_path, :method => :post do |f| %>
       <div class="newsletter">      
-        Register with us:  <input type='email' name='email' size='28' value="<%= t(:newsletter_message) %>">
+        <input style="margin-right: 10px" type='email' name='email' size='45' value="<%= t(:newsletter_message) %>">
         <button>send</button>
       </div>
       <% end %>

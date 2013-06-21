@@ -15,15 +15,10 @@ textarea {
   @include box-shadow(none);
   @include transition-duration(0.3s);
   */border-width: 3px;
-  padding: 7px 20px;
+  padding: 6px 10px;
   text-transform: uppercase;
 
 
-  &:hover {
-    background-color: #8dba53;
-    color: white;
-    border-color: lighten(#8dba53, 30);  
-  }
 }
 
 select {

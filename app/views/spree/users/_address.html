@@ -1,0 +1,22 @@
+<div class="columns alpha eight wrapper-form-address" style="margin-bottom:20px">
+
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => addr } %>
+
+  <% addr_url = addr.persisted? ? update_address_path(addr) : create_address_path %>
+  <%= form_for addr, :namespace => "#{type_address(addr)}_address_#{index}", :url => addr_url,  :html => {} do |f| %>
+  <%= f.hidden_field :position, :value => addr.position %>
+  <fieldset>
+<!--    <%= content_tag(:legend, t("#{type_address(addr)}_address", :scope => :address_book)) %>-->
+    <div class="inner">
+      <%= render :partial => 'spree/users/address_form', :locals => {
+      :address_name => 'address',  :address_form => f,
+      :address_type => type_address(addr),  :address => addr
+      } %>
+    </div>
+    <%= f.submit 'Save/Update' %>
+    <% if addr.persisted? && spree_current_user.addresses.size > 1 %>
+    <%= link_to "Delete", delete_address_path(addr), :method => :delete, :class => "button", :style => "background-color: red" %>
+    <% end %>
+  </fieldset>
+  <% end %>
+</div>

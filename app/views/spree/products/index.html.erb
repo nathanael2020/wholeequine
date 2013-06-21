@@ -9,11 +9,47 @@
 <% end %>
 
 
+	
+<% unless params[:keywords].present? %>
+
+  <div data-hook="taxon_children">
+
+	<ul>
+	
+		<% @taxons.each do |child| %>
+		
+		<% if !['Tags','Featured','Latest'].include?(child.name) %>
+		
+	<li style="display:block; float:left; width:160px; height:160px; border: 1px solid grey; margin:5px; padding: 5px; text-align: center">
+	
+		 <div><%= link_to child.name, seo_url(child), :class => 'breadcrumbs' %></div>
+  
+<div><%=  link_to image_tag(child.icon.url(:normal), :alt => child.name), seo_url(child)   %>
+</div>
+	</li>
+
+	<% end %>	
+	<% end %>
+	    
+	</ul>
+	
+  </div>
+
+
+<% else %>
 
 <div data-hook="search_results">
+
   <% if @products.empty? %>
   <h6 class="search-results-title"><%= t(:no_products_found) %></h6>
   <% else %>
+      <div class="sort-bar">
+      <%= sort_products(params) %>
+    </div>
+
     <%= render :partial => 'spree/shared/products_search_table', :locals => { :products => @products, :taxon => @taxon } %>
   <% end %>
 </div>
+
+
+<% end %>

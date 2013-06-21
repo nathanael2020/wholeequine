@@ -21,7 +21,13 @@
     <%= render :partial => 'spree/shared/rating_products_list', :locals => {:product => product, :review => 0} %>
     <% end %>
         <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
-        <span class="price selling" itemprop="price"><%= product.price_in(current_currency).display_price %></span>
+        <span class="price selling" itemprop="price">
+          <% if product.range_price?(current_currency) %>
+          <%= product.range_price(current_currency)  %>
+          <% else %>
+          <%= product.price_in(current_currency).display_price %>
+          <% end %>
+        </span>
       </li>
 
     <% end %>

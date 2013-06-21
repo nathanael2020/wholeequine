@@ -1,6 +1,15 @@
 module Spree::Search
   class ProductIngredient < Spree::Core::Search::Base
 
+    attr_accessor :params
+
+    def initialize(params)
+      self.current_currency = Spree::Config[:currency]
+      @params = params.dup || {}
+      @properties = {}
+      prepare(params)
+    end
+    
     def retrieve_products
       @products_scope = get_base_scope
       @products_scope_without_name = get_base_scope_without_name_conditions
@@ -33,6 +42,28 @@ module Spree::Search
 
 
       @products = Spree::Product.where([base_sql, ingredient_sql, review_sql ].select(&:present?).join(" OR "))
+      
+      if @params.has_key? :sort
+        direction_sort = (@params[:ordering].to_s[/asc|desc/] ? @params[:ordering] : "asc").upcase
+        case params[:sort].to_s
+        when "price"
+
+          order_sql = %{
+              (SELECT min("spree_prices".amount)
+                FROM "spree_variants"
+                      INNER JOIN "spree_prices" ON "spree_prices"."variant_id" = "spree_variants"."id"
+                 WHERE spree_variants.product_id = spree_products.id AND spree_variants.deleted_at IS NULL AND spree_prices.currency = '#{current_currency}' )
+                #{ direction_sort == "ASC" ? 'ASC' : 'DESC' }
+          }
+
+          @products = @products.order(order_sql)
+        when "date"
+          @products = @products.order("spree_products.created_at #{direction_sort}")
+        when "name"
+          @products = @products.order("spree_products.name #{direction_sort}")
+        end
+      end
+
       @products = @products.page(curr_page).per(per_page)
     end
 

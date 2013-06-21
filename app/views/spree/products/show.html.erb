@@ -1,25 +1,10 @@
-<% content_for :sidebar do %>
-<div data-hook="homepage_sidebar_navigation">
-  <% if "products" == params[:controller] && @taxon %>
-  <%= render :partial => 'spree/shared/filters' %>
-  <% else %>
-  <%= render :partial => 'spree/shared/taxonomies' %>
-  <% end %>
-</div>
-<div id="recently-viewed" data-hook="recently_viewed">
-  <%= render :partial => 'spree/shared/recently_viewed_products' %>
-</div>
-
-<%= render :partial => 'taxons' %>
-
-<% end %>
 
 
 
 <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
   <% @body_id = 'product-details' %>
 
-  <div class="columns twelve alpha" data-hook="product_left_part">
+  <div class="columns sixteen alpha" data-hook="product_left_part">
     <div class="row" data-hook="product_left_part_wrap">
 
       <span id="product-images" data-hook="product_images">
@@ -42,7 +27,7 @@
     </div>
   </div>
 
-  <div class="columns twelve omega" data-hook="product_right_part" style="margin-top:20px">
+  <div class="columns sixteen omega" data-hook="product_right_part" style="margin-top:20px">
 
   <h6 class="product-section-title"><%= t(:product_information) %></h6>
 
@@ -50,7 +35,10 @@
       <ul>
         <li><a href="#prod_tab_1" style="font-size: 13px; text-transform: uppercase; font-weight: 600"><span>Description</span></a></li>
         <li><a href="#prod_tab_2" style="font-size: 13px; text-transform: uppercase; font-weight: 600"><span>Details</span></a></li>
+                <% if @product.label_image%>
+
         <li><a href="#prod_tab_3" style="font-size: 13px; text-transform: uppercase; font-weight: 600"><span>Label</span></a></li>
+<% end %>
       </ul>
       <div id="prod_tab_1" style="height: 200px; overflow: scroll">
         <div id="product-description" data-hook="product_description">
@@ -70,15 +58,16 @@
 
       </div>
 
-
+      <% if @product.label_image? %>
       <div id="prod_tab_3" style="height: 200px; overflow: scroll">
 
-        <div id="blah" data-hook>
-	        Product label goes here...
+        <div >
+	        <%= image_tag @product.label_image_url(:original) %>
         </div>
 
       </div>
-
+      <% end %>
+      
     </div>
 
 
@@ -100,3 +89,5 @@
 </div>
 
 </div>
+
+<%= render :partial => "slider", :locals =>{:slider_products => (@product.also_boughts rescue []) } %>

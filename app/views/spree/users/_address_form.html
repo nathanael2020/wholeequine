@@ -1,21 +1,22 @@
 <% address_id = address_type.chars.first %>
 <% country_id = address_type == 'billing' ? 'bcountry' : 'scountry' %>
+<% country_id = "#{address_id}scountry" %>
+<%= custom_address_field(address_form, :name, address_name) %>
 <% ADDRESS_FIELDS.each do |field| %>
   <% if field == "country" %>
 
   <p class="field" id=<%="#{address_id}country" %>>
-    <%= address_form.label :country_id, t(:country) %><span class="required">*</span><br />
+    <%= address_form.label :country_id, t(:country) %><span class="required">*</span>
     <span id=<%="#{address_id}country-selection" %>>
       <%= address_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %>
     </span>
 
   </p>
   <% elsif field == "state" && Spree::Config[:address_requires_state] %>
-
-    <p class="field" id=<%="#{address_id}state" %>>
-        	
+  <% field_prefix =  address_form.options[:namespace] %>
+    <p class="field address-state" id=<%="#{field_prefix}_#{address_id}state" %>>
       <% have_states = !address.country.states.empty? %>
-      <%= address_form.label :state, t(:state) %><span class='required' id=<%="#{address_id}state-required"%>>*</span><br/>
+      <%= address_form.label :state, t(:state) %><span class='required' id=<%="#{field_prefix}_#{address_id}state-required"%>>*</span>
 
       <% state_elements = [
          address_form.collection_select(:state_id, address.country.states,
@@ -29,7 +30,7 @@
          ].join.gsub('"', "'").gsub("\n", "")
       %>
       <%= javascript_tag do -%>
-        $('#<%="#{address_id}state" %>').append("<%== state_elements %>");
+        $('#<%="#{field_prefix}_#{address_id}state" %>').append("<%== state_elements %>");
       <% end %>
     </p>
       <noscript>
@@ -38,9 +39,10 @@
 
   <% else %>
     <% next if field == "company" && !Spree::Config[:company] %>
-    <%= address_field(address_form, field.to_sym, address_name) %>
+    <%= custom_address_field(address_form, field.to_sym, address_name) %>
   <% end %>
 <% end %>
+
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>
   <%= address_field(address_form, :alternative_phone, address_name) %>
 <% end %>

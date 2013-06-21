@@ -16,6 +16,7 @@
  *= require icons
  *= require icons-codes
  *= require store/ingredients
+ *= require ./spree_fancy
  *= require_self
  *= require_tree .
 
@@ -587,7 +588,7 @@ background: transparent;
 min-height: 40px;
 padding-left: 0px;
 padding-right: 0px;
-margin-top: 40px;
+margin-top: 0px;
 margin-bottom: 0px;
 
 background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 90%); /* FF3.6+  *= require store/spree_product_ingredients
@@ -785,9 +786,15 @@ display: block;
 
 #wrapper a {
 
-	color: #333333 !important;
+	color: #333333;
 
 }
+
+#wrapper a.button {
+
+		color: white;
+			
+			}
 
 #wrapper form {
 
@@ -823,7 +830,7 @@ display: block;
 }
 
 #wrapper2 a {
-
+			
 	color: #333333 !important;
 
 }
@@ -1198,3 +1205,157 @@ margin-right: 2px;
 	margin-bottom: 25px;
 	
 }
+
+
+
+
+
+input[type="submit"], input[type="button"],
+input[type= "reset"], button, a.button {
+
+  background-color: #fff;
+  background-image: none;
+  text-shadow: none;
+  color: white;
+  font-weight: bold;
+  font-size: $button_font_size;
+  font-family: 'Gill Sans';
+  border-radius: 10px;
+  padding: 6px 10px 5px;
+  vertical-align:  middle;
+
+  -webkit-font-smoothing: antialiased;
+
+  -webkit-box-shadow: inset 0 1px 5px rgba(50,50,50,0.8);
+   -khtml-box-shadow: inset 0 1px 5px rgba(50,50,50,0.8);
+     -moz-box-shadow: inset 0 1px 5px rgba(50,50,50,0.8);
+       -o-box-shadow: inset 0 1px 5px rgba(50,50,50,0.8);
+          box-shadow: inset 0 1px 5px rgba(50,50,50,0.8);
+  -webkit-border-radius: 15px;
+   -khtml-border-radius: 15px;
+     -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+       -o-border-radius: 15px;
+          border-radius: 15px;
+
+
+	-moz-box-shadow:inset 0px 1px 0px 0px #aaa;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #aaa;
+	box-shadow:inset 0px 1px 0px 0px #aaa;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #444), color-stop(1, #000) );
+	background:-moz-linear-gradient( center top, #444 5%, #000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#444', endColorstr='#000');
+	background-color:#79bbff;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:1px solid #777;
+	display:inline-block;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+	
+  &.large {
+    padding: 7px 10px;
+    font-size: $button_font_size + 2;
+  }
+
+  &.gray {
+    background-color: lighten($body_text_color, 20);
+    border-color: lighten($body_text_color, 10);
+  }
+
+}
+
+input[type="submit"]:hover, input[type="button"]:hover,
+input[type= "reset"]:hover, button:hover, a.button:hover {
+    
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000), color-stop(1, #444) );
+	background:-moz-linear-gradient( center top, #000 5%, #444 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000', endColorstr='#444');
+	background-color:#000;
+	border:3px solid #777;
+  color: white;
+
+  }
+}
+
+.ie8 {
+  a.button {
+    line-height: 16px;
+  }
+}
+
+input[type="checkbox"], label {
+  vertical-align: middle;
+}
+
+a.button {
+  display: inline-block;
+  line-height: 15px;
+  margin-top: -2px;
+  vertical-align: bottom;
+}
+
+#top-nav-bar a.crtbtns {
+
+color: white;
+font-weight: bold;
+vertical-align: middle;
+-webkit-font-smoothing: antialiased;
+
+}
+
+#preview-population a {
+	
+	color: #222;
+	
+}
+
+#preview-population a.button {
+	
+	color: #fff;
+	
+}
+
+
+.profile-address form{
+  max-width: 450px !important;
+}
+.profile-address form input{
+  display: inline-block;
+  width: 60% !important;
+  margin-left: 5px;
+  margin-top:0px;
+  float: right;
+}
+.profile-address form select{
+float: right;
+width: 66% !important;
+height: 34px;
+margin-top:0px;
+}
+
+.profile-address .hidden{
+  display:none;
+}
+
+
+form p, form .field {
+padding: 0;
+margin-bottom: 20px;
+}
+
+
+
+.sort-bar {
+width: 100%;
+display: block;
+height: 33px;
+}
+.sort-bar #sort-products{
+float: right;
+height: 30px;
+}
+
+
+

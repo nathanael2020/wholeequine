@@ -4,5 +4,5 @@
 <% end %>
 
 <% if !current_page?(root_path) %>
-<div style="width:100%; margin-bottom:25px"><%= breadcrumbs(@taxon) %></div>
+<div style="width:100%; margin-bottom:25px"><%= breadcrumbs(@taxon, @product) %></div>
 <% end %>

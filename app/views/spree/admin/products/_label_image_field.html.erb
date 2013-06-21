@@ -1,0 +1,28 @@
+<div class="alpha omega twelve columns">
+  <%= f.field_container :label_image do %>
+  <%= f.fields_for :label_image, (f.object.label_image || f.object.build_label_image) do |f_image| %>
+  <label>Label Image</label>
+  <hr />
+  <div>
+    <div class="four columns alpha">
+      <div data-hook="file" class="field">
+        <%= f_image.label t(:filename) %><br>
+        <%= f_image.file_field :attachment %>
+      </div>
+      <div  class="field">
+        <% if f.object.label_image? %>
+        <%= image_tag f.object.label_image_url(:original) %>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="field omega five columns">
+      <%= f_image.label t(:alt_text) %><br>
+      <%= f_image.text_area :alt, :rows => 4, :class => 'fullwidth' %>
+    </div>
+  </div>
+
+  <% end %>
+
+  <% end %>
+</div>

@@ -12,6 +12,23 @@ $(function(){
   // Hide flash messages after timeout
   setTimeout('$(".flash").fadeOut(1000)', 5000);
 
+    // Product sliders
+    if ($('#product-slider').length > 0) {
+
+        $('#product-slider > ul').bxSlider({
+            adaptiveHeight: true,
+            auto: true,
+            autoHover: true,
+            useCSS: true,
+            controls: true,
+            pagerSelector: '.slider-pager',
+            touchEnabled: false
+        });
+
+
+    }
+
+
   // Home sliders
   if($('#home-slider').length > 0) {
 

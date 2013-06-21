@@ -1,0 +1,27 @@
+<% unless slider_products.blank? %>
+<h3>Customers also bought</h3>
+<div id="product-slider">
+  <ul>
+    <% slider_products.each do |product| %>
+    <li>
+      <div class="product-image">
+        <%= link_to small_image(product), product %>
+      </div>
+      <div class="product-info">
+        <h2 class="product-title">
+          <%= product.name %> -
+          <% if product.on_sale? %>
+          <span class="product-eprice">
+            <%= product.display_price %>
+          </span>
+          <% end %>
+
+        </h2>
+
+      </div>
+    </li>
+
+    <% end %>
+  </ul>
+</div>
+<% end %>

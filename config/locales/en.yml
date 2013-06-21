@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  newsletter_message: "Sign up and save 10% on your first order."
+  newsletter_message: "Enter your email and save 10% on your first order."
   shop_by_taxonomy: "%{taxonomy}"
+  address_book:
+    primary_address: Primary Address  
+    secondary_address: Secondary Address    
+  label_image: Label Image
