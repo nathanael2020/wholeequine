@@ -4,82 +4,115 @@
    %>
 
 <% if products.empty? %>
-<%= t(:no_products_found) %>
+
+	<%= t(:no_products_found) %>
+
 <% elsif params.key?(:keywords) %>
-<h6 class="search-results-title"><%= t(:search_results, :keywords => h(params[:keywords])) %></h6>
+
+	<h6 class="search-results-title"><%= t(:search_results, :keywords => h(params[:keywords])) %></h6>
+
 <% end %>
+
 <% if products.any? %>
+
 <table class="search-results-table">
+
   <% products.each_with_index do |product, i| %>
-  <tr>
-    <td rowspan=3>
 
-<center>
-      <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
-</center>
-      <div class="ratings" style="padding-top:10px">
-          <center><span title="<%= I18n.t('star', :count => product.stars) %>">
-            <%= render :partial => "spree/reviews/stars", :locals => {:stars => product.stars } %>
-          </span></center>
-      </div>
+	  <tr>
+		  <td rowspan=3>
 
-    </td>
-    <td style="padding-top:25px">
-       <span class="prod_name"><%= "#{i+1}." %> </span><%= link_to truncate(product.name, :length => 40), product, :class => 'info prod_name', :itemprop => "name", :title => product.name %>
-      <div>
+			  <center>
+			  
+			  <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
+
+			  </center>
+      
+			  <div class="ratings" style="padding-top:10px">
+          
+				  <center><span title="<%= I18n.t('star', :count => product.stars) %>"><%= render :partial => "spree/reviews/stars", :locals => {:stars => product.stars } %></span></center>
+
+			 </div>
+
+
+		</td>
+
+		<td style="padding-top:25px">
+       
+			<span class="prod_name"><%= "#{i+1}." %> </span><%= link_to truncate(product.name, :length => 40), product, :class => 'info prod_name', :itemprop => "name", :title => product.name %>
+      
+			<div>
         <!-- <span class="price selling" itemprop="price"> -->
         <!-- <%= product.price_in(current_currency).display_price %> -->
         <!-- </span> -->
-      </div>
-    </td>
+			</div>
+    
+		</td>
 
-    <td style="padding-top:25px">
+		<td style="padding-top:25px">
 
-      <div class="prod_name" style="vertical-align:top">
+			<div class="prod_name" style="vertical-align:top">
 
-        <span class="price selling" itemprop="price">
-          <% if product.range_price?(current_currency) %>
-          <%= product.range_price(current_currency)  %>
-          <% else %>
-          <%= product.price_in(current_currency).display_price %>
-          <% end %>
-        </span>
+				<span class="price selling" itemprop="price">
+
+					<% if product.range_price?(current_currency) %>
+						<%= product.range_price(current_currency)  %>
+					<% else %>
+						<%= product.price_in(current_currency).display_price %>
+					<% end %>
+
+				</span>
         
 <!--      <%= number_to_currency product.price %> -->
-      </div>
+
+	      </div>
 
 
-    </td>
-  </tr>
-  <tr>
+		</td>
+
+	</tr>
+
+	<tr>
   
-  <td colspan="2">
-        <div style="margin-bottom:15px">
+		<td colspan="2">
         
-        <% if product.description.length == 0 %>
-        <%= t(:product_has_no_description) %>
-        <% else %>
-        <u>Product Description:</u>
-        <%= truncate(product.description, :length => 255) %>
-        <% end %>
+        	<div style="margin-bottom:15px">
         
-        </div>
+				<% if product.description.length == 0 %>
         
-</td>
+					<%= t(:product_has_no_description) %>
 
-  </tr>
+				<% else %>
+				
+					<u>Product Description:</u>
+
+					<%= truncate(product.description, :length => 255) %>
+
+				<% end %>
+        
+			</div>
+        
+		</td>
+
+	</tr>
   
-  <tr style="border-bottom: 3px solid #d9d9db">
-    <td colspan=2>
-      <div style="margin-bottom:25px">
-      <b>Categories:
-        <%= product.taxons.map{|t| "#{link_to(t.name, seo_url(t))}"  }.join(', ').html_safe %></b>
-      </div>
+	<tr style="border-bottom: 3px solid #d9d9db">
+    
+    	<td colspan=2>
 
-    </td>
-  </tr>
+			<div style="margin-bottom:25px">
+
+				<b>Categories: <%= product.taxons.map{|t| "#{link_to(t.name, seo_url(t))}"  }.join(', ').html_safe %></b>
+
+			</div>
+
+		</td>
+	</tr>
+  
   <% end %>
+
 </table>
+
 <% end %>
 
 <% if paginated_products.respond_to?(:num_pages) %>

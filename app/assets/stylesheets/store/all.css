@@ -1357,3 +1357,11 @@ height: 33px;
 float: right;
 height: 30px;
 }
+
+.search-results-title {
+	
+display: block;
+width: 100%;
+margin-top: 40px;
+
+}

@@ -2,9 +2,10 @@
 
 <% content_for :sidebar do %>
   <div data-hook="taxon_sidebar_navigation">
-    <%= render :partial => 'spree/shared/taxonomies' %>
 
     <%= render :partial => 'spree/shared/filters' %>
+
+    <%= render :partial => 'spree/shared/taxonomies' %>
 
 
     <%= render :partial => 'spree/shared/recently_viewed_products' %>    
@@ -13,56 +14,63 @@
 
 <div class="columns twelve">
 
-<% if @taxon.children.empty? %>
+	<% if @taxon.children.empty? %>
 
-  <h5 class="taxon-title">All Products in <%= @taxon.name %></h5>
+		<h5 class="taxon-title">All Products in <%= @taxon.name %></h5>
   
-<div data-hook="taxon_products">
-  <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
-</div>
+		<div data-hook="taxon_products">
+			
+			<%#= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
 
-<% else %>
+		</div>
 
-<% unless params[:keywords].present? %>
+	<% else %>
 
 
-	<% if !@taxon.children.empty? %>
+	<% unless params[:keywords].present? %>
+
+
+		<% if !@taxon.children.empty? %>
 	
-	  <h5 class="taxon-title" style="margin-bottom:25px">Subcategories in <%= @taxon.name %></h5>
+			<h5 class="taxon-title" style="margin-bottom:25px">Subcategories in <%= @taxon.name %></h5>
 
-	  <% end %>
+		<% end %>
 
-  <div data-hook="taxon_children">
+		<div data-hook="taxon_children">
 
-	<ul>
+			<ul>
 	
-		<% @taxon.children.each do |child| %>
+				<% @taxon.children.each do |child| %>
 		
-	<li style="display:block; float:left; width:160px; height:160px; border: 1px solid grey; margin:5px; padding: 5px; text-align: center">
+					<li style="display:block; float:left; width:160px; height:160px; border: 1px solid grey; margin:5px; padding: 5px; text-align: center">
 	
-		 <div><%= link_to child.name, seo_url(child), :class => 'breadcrumbs' %></div>
+						<div><%= link_to child.name, seo_url(child), :class => 'breadcrumbs' %></div>
   
-<div><%=  link_to image_tag(child.icon.url(:normal), :alt => child.name), seo_url(child)   %>
-</div>
-	</li>
+						<div><%=  link_to image_tag(child.icon.url(:normal), :alt => child.name), seo_url(child)   %></div>
+
+					</li>
 	
-	<% end %>
+				<% end %>
 	    
-	</ul>
+			</ul>
 	
-  </div>
-<% end %>
+		</div>
 
-</div>
+	<% end %>
 
-<div class="columns twelve" style="margin-top: 25px">
+<!--</div>-->
 
-  <h5 class="taxon-title" style="float:left !important">All Products in <%= @taxon.name %></h5>
+	<div class="columns twelve" style="margin-top: 25px">
+
+		<h5 class="taxon-title" style="float:left !important">All Products in <%= @taxon.name %></h5>
   
-<div data-hook="taxon_products">
-  <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
-</div>
+		<div data-hook="taxon_products">
 
-</div>
+			<%#= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+
+		</div>
+
+	</div>
 
 <% end %>
+
