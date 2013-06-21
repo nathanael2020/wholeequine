@@ -1,24 +1,29 @@
 module ApplicationHelper
   def sort_products(params = {})
     content_tag :select, :id => "sort-products" do
-      option = content_tag(:option, option_options(:name, :desc, params)) do
-        'Alphabetical (increasing)'
+      option = content_tag(:option, option_options(:date, :asc, params)) do
+        'Date Added (oldest first)'
       end
       option << content_tag(:option, option_options(:name, :asc, params)) do
+        'Alphabetical (increasing)'
+      end
+      option << content_tag(:option, option_options(:name, :desc, params)) do
         'Alphabetical (decreasing)'
       end
-
+      option << content_tag(:option, option_options(:date, :desc, params)) do
+        'Date Added (newest first)'
+      end
       option << content_tag(:option, option_options(:price, :asc, params)) do
         'Price (low to high)'
       end
       option << content_tag(:option, option_options(:price, :desc, params)) do
         'Price (high to low)'
       end
-      option << content_tag(:option, option_options(:date, :desc, params)) do
-        'Date Added (newest first)'
+      option << content_tag(:option, option_options(:rating, :desc, params)) do
+        'Rating (high to low)'
       end
-      option << content_tag(:option, option_options(:date, :asc, params)) do
-        'Date Added (oldest first)'
+      option << content_tag(:option, option_options(:rating, :asc, params)) do
+        'Rating (low to high)'
       end
 
     end

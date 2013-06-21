@@ -1348,14 +1348,12 @@ margin-bottom: 20px;
 
 
 .sort-bar {
-width: 100%;
-display: block;
+width: auto;
+display: inline;
+float: right;
 height: 33px;
 }
 .sort-bar #sort-products{
 float: right;
 height: 30px;
 }
-
-
-

@@ -61,6 +61,8 @@ module Spree::Search
           @products = @products.order("spree_products.created_at #{direction_sort}")
         when "name"
           @products = @products.order("spree_products.name #{direction_sort}")
+        when "rating"
+          @products = @products.order("spree_products.rating #{direction_sort}")
         end
       end
 

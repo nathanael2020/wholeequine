@@ -11,6 +11,8 @@
   </div>
 <% end %>
 
+<div class="columns twelve">
+
 <% if @taxon.children.empty? %>
 
   <h5 class="taxon-title">All Products in <%= @taxon.name %></h5>
@@ -51,12 +53,16 @@
   </div>
 <% end %>
 
+</div>
 
+<div class="columns twelve" style="margin-top: 25px">
 
-  <h5 class="taxon-title">All Products in <%= @taxon.name %></h5>
+  <h5 class="taxon-title" style="float:left !important">All Products in <%= @taxon.name %></h5>
   
 <div data-hook="taxon_products">
   <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+</div>
+
 </div>
 
 <% end %>
